@@ -1,0 +1,5 @@
+cohort_id, cohort_name, type
+1788144, "Celecoxib users", "target"
+1788146, "diclofenac", "target"
+1788147, "GI Bleed", "outcome"
+1773979, "death", "outcome"

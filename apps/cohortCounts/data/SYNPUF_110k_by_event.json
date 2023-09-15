@@ -1,0 +1,39 @@
+{
+    "summary": {
+        "baseCount": 612861,
+        "finalCount": 0,
+        "lostCount": 0,
+        "percentMatched": "0.00%"
+    },
+    "inclusionRuleStats": [
+        {
+            "id": 0,
+            "name": "Male",
+            "percentExcluded": "0.00%",
+            "percentSatisfying": "42.41%",
+            "countSatisfying": 259927
+        },
+        {
+            "id": 1,
+            "name": "Age >= 30",
+            "percentExcluded": "0.00%",
+            "percentSatisfying": "99.50%",
+            "countSatisfying": 609819
+        },
+        {
+            "id": 2,
+            "name": "prior type 2 diabetes",
+            "percentExcluded": "0.00%",
+            "percentSatisfying": "77.32%",
+            "countSatisfying": 473883
+        },
+        {
+            "id": 3,
+            "name": "prior Omeprazole 20 MG Delayed Release Oral Capsule",
+            "percentExcluded": "32.48%",
+            "percentSatisfying": "0.00%",
+            "countSatisfying": 0
+        }
+    ],
+    "treemapData": "{\"name\" : \"Everyone\", \"children\" : [{\"name\" : \"Group 3\", \"children\" : [{\"name\": \"1110\", \"size\": 199050},{\"name\" : \"Group 2\", \"children\" : [{\"name\": \"1100\", \"size\": 59381},{\"name\": \"1010\", \"size\": 1077},{\"name\": \"0110\", \"size\": 272582},{\"name\" : \"Group 1\", \"children\" : [{\"name\": \"0010\", \"size\": 1174},{\"name\": \"0100\", \"size\": 78806},{\"name\": \"1000\", \"size\": 419},{\"name\" : \"Group 0\", \"children\" : [{\"name\": \"0000\", \"size\": 372}]}]}]}]}]}"
+}

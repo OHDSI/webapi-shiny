@@ -1,0 +1,39 @@
+{
+    "summary": {
+        "targetId": 1788144,
+        "outcomeId": 1788147,
+        "totalPersons": 2063,
+        "timeAtRisk": 2685,
+        "cases": 273
+    },
+    "stratifyStats": [
+        {
+            "targetId": 1788144,
+            "outcomeId": 1788147,
+            "id": 0,
+            "name": "male",
+            "totalPersons": 807,
+            "cases": 107,
+            "timeAtRisk": 1034
+        },
+        {
+            "targetId": 1788144,
+            "outcomeId": 1788147,
+            "id": 1,
+            "name": "female",
+            "totalPersons": 1256,
+            "cases": 166,
+            "timeAtRisk": 1651
+        },
+        {
+            "targetId": 1788144,
+            "outcomeId": 1788147,
+            "id": 2,
+            "name": "age over 30",
+            "totalPersons": 2044,
+            "cases": 270,
+            "timeAtRisk": 2662
+        }
+    ],
+    "treemapData": "{\"name\" : \"Everyone\", \"children\" : [{\"name\" : \"Group 2\", \"children\" : [{\"name\": \"101\", \"size\": 800, \"cases\": 106, \"timeAtRisk\": 1028 },{\"name\": \"011\", \"size\": 1244, \"cases\": 164, \"timeAtRisk\": 1634 },{\"name\" : \"Group 1\", \"children\" : [{\"name\": \"100\", \"size\": 7, \"cases\": 1, \"timeAtRisk\": 7 },{\"name\": \"010\", \"size\": 12, \"cases\": 2, \"timeAtRisk\": 16 }]}]}]}"
+}

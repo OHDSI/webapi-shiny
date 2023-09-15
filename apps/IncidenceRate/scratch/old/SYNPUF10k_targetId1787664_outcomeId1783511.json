@@ -1,0 +1,30 @@
+{
+    "summary": {
+        "targetId": 1787664,
+        "outcomeId": 1783511,
+        "totalPersons": 6733,
+        "timeAtRisk": 585,
+        "cases": 0
+    },
+    "stratifyStats": [
+        {
+            "targetId": 1787664,
+            "outcomeId": 1783511,
+            "id": 0,
+            "name": "age > 18",
+            "totalPersons": 6733,
+            "cases": 0,
+            "timeAtRisk": 585
+        },
+        {
+            "targetId": 1787664,
+            "outcomeId": 1783511,
+            "id": 1,
+            "name": "Male",
+            "totalPersons": 2601,
+            "cases": 0,
+            "timeAtRisk": 227
+        }
+    ],
+    "treemapData": "{\"name\" : \"Everyone\", \"children\" : [{\"name\" : \"Group 2\", \"children\" : [{\"name\": \"11\", \"size\": 2601, \"cases\": 0, \"timeAtRisk\": 227 },{\"name\" : \"Group 1\", \"children\" : [{\"name\": \"10\", \"size\": 4132, \"cases\": 0, \"timeAtRisk\": 358 }]}]}]}"
+}
