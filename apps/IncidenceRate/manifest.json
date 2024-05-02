@@ -10,28 +10,6 @@
     "has_parameters": false
   },
   "packages": {
-    "BH": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "BH",
-        "Type": "Package",
-        "Title": "Boost C++ Header Files",
-        "Version": "1.84.0-0",
-        "Date": "2024-01-09",
-        "Author": "Dirk Eddelbuettel, John W. Emerson and Michael J. Kane",
-        "Maintainer": "Dirk Eddelbuettel <edd@debian.org>",
-        "Description": "Boost provides free peer-reviewed portable C++ source \n libraries.  A large part of Boost is provided as C++ template code\n which is resolved entirely at compile-time without linking.  This \n package aims to provide the most useful subset of Boost libraries \n for template use among CRAN packages. By placing these libraries in \n this package, we offer a more efficient distribution system for CRAN \n as replication of this code in the sources of other packages is \n avoided. As of release 1.84.0-0, the following Boost libraries are\n included: 'accumulators' 'algorithm' 'align' 'any' 'atomic' 'beast'\n 'bimap' 'bind' 'circular_buffer' 'compute' 'concept' 'config'\n 'container' 'date_time' 'detail' 'dynamic_bitset' 'exception'\n 'flyweight' 'foreach' 'functional' 'fusion' 'geometry' 'graph' 'heap'\n 'icl' 'integer' 'interprocess' 'intrusive' 'io' 'iostreams'\n 'iterator' 'lambda2' 'math' 'move' 'mp11' 'mpl' 'multiprecision'\n 'numeric' 'pending' 'phoenix' 'polygon' 'preprocessor' 'process'\n 'propery_tree' 'qvm' 'random' 'range' 'scope_exit' 'smart_ptr' 'sort'\n 'spirit' 'tuple' 'type_traits' 'typeof' 'unordered' 'url' 'utility'\n 'uuid'.",
-        "License": "BSL-1.0",
-        "URL": "https://github.com/eddelbuettel/bh,\nhttps://dirk.eddelbuettel.com/code/bh.html",
-        "BugReports": "https://github.com/eddelbuettel/bh/issues",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-01-09 13:19:22 UTC; edd",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-01-10 11:53:35 UTC",
-        "Built": "R 4.3.1; ; 2024-01-10 14:27:15 UTC; unix"
-      }
-    },
     "R6": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -225,35 +203,6 @@
         "Date/Publication": "2024-02-15 15:00:02 UTC",
         "Built": "R 4.3.1; aarch64-apple-darwin20; 2024-02-18 07:14:25 UTC; unix",
         "Archs": "V8.so.dSYM"
-      }
-    },
-    "anytime": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "anytime",
-        "Type": "Package",
-        "Title": "Anything to 'POSIXct' or 'Date' Converter",
-        "Version": "0.3.9",
-        "Date": "2020-08-26",
-        "Author": "Dirk Eddelbuettel",
-        "Maintainer": "Dirk Eddelbuettel <edd@debian.org>",
-        "Description": "Convert input in any one of character, integer, numeric, factor,\n or ordered type into 'POSIXct' (or 'Date') objects, using one of a number of\n predefined formats, and relying on Boost facilities for date and time parsing.",
-        "URL": "http://dirk.eddelbuettel.com/code/anytime.html",
-        "BugReports": "https://github.com/eddelbuettel/anytime/issues",
-        "License": "GPL (>= 2)",
-        "Encoding": "UTF-8",
-        "Depends": "R (>= 3.2.0)",
-        "Imports": "Rcpp (>= 0.12.9)",
-        "LinkingTo": "Rcpp (>= 0.12.9), BH",
-        "Suggests": "tinytest (>= 1.0.0), gettz",
-        "RoxygenNote": "6.0.1",
-        "NeedsCompilation": "yes",
-        "Packaged": "2020-08-26 17:46:45.898451 UTC; edd",
-        "Repository": "CRAN",
-        "Date/Publication": "2020-08-27 11:40:21 UTC",
-        "Built": "R 4.3.0; aarch64-apple-darwin20; 2023-04-11 04:38:09 UTC; unix",
-        "Archs": "anytime.so.dSYM"
       }
     },
     "askpass": {
@@ -2309,33 +2258,6 @@
         "Built": "R 4.3.1; ; 2024-04-02 18:15:30 UTC; unix"
       }
     },
-    "shinyWidgets": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "shinyWidgets",
-        "Title": "Custom Inputs Widgets for Shiny",
-        "Version": "0.8.6",
-        "Authors@R": "c(\n  person(\"Victor\", \"Perrier\", email = \"victor.perrier@dreamrs.fr\", role = c(\"aut\", \"cre\", \"cph\")),\n  person(\"Fanny\", \"Meyer\", role = \"aut\"),\n  person(\"David\", \"Granjon\", role = \"aut\"),\n  person(\"Ian\", \"Fellows\", role = \"ctb\", comment = \"Methods for mutating vertical tabs & updateMultiInput\"),\n  person(\"Wil\", \"Davis\", role = \"ctb\", comment = \"numericRangeInput function\"),\n  person(\"Spencer\", \"Matthews\", role = \"ctb\", comment = \"autoNumeric methods\"),\n  person(family = \"JavaScript and CSS libraries authors\", role = c(\"ctb\", \"cph\"), comment = \"All authors are listed in LICENSE.md\")\n  )",
-        "Description": "Collection of custom input controls and user interface components for 'Shiny' applications. \n  Give your applications a unique and colorful style !",
-        "URL": "https://github.com/dreamRs/shinyWidgets,\nhttps://dreamrs.github.io/shinyWidgets/",
-        "BugReports": "https://github.com/dreamRs/shinyWidgets/issues",
-        "License": "GPL-3",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "RoxygenNote": "7.3.1",
-        "Depends": "R (>= 3.1.0)",
-        "Imports": "anytime, bslib, sass, shiny (>= 1.6.0), htmltools (>= 0.5.1),\njsonlite, grDevices, rlang",
-        "Suggests": "testthat, covr, ggplot2, DT, scales, shinydashboard,\nshinydashboardPlus",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-04-24 16:07:11 UTC; victorp",
-        "Author": "Victor Perrier [aut, cre, cph],\n  Fanny Meyer [aut],\n  David Granjon [aut],\n  Ian Fellows [ctb] (Methods for mutating vertical tabs &\n    updateMultiInput),\n  Wil Davis [ctb] (numericRangeInput function),\n  Spencer Matthews [ctb] (autoNumeric methods),\n  JavaScript and CSS libraries authors [ctb, cph] (All authors are listed\n    in LICENSE.md)",
-        "Maintainer": "Victor Perrier <victor.perrier@dreamrs.fr>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-04-24 17:00:02 UTC",
-        "Built": "R 4.3.1; ; 2024-04-24 20:34:32 UTC; unix"
-      }
-    },
     "shinyjs": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -2997,35 +2919,53 @@
     }
   },
   "files": {
+    ".RData": {
+      "checksum": "61cab6124d30516d29e7a6b9ec4e3d78"
+    },
     "app.R": {
-      "checksum": "d4f999e77e0fa0f3d5f1dbc94ce9f97f"
+      "checksum": "f86b3374d7874e161f7d95f2f8e6ead5"
     },
-    "data/cohort_link.txt": {
-      "checksum": "d9e721cb546c3c48791864865587baea"
+    "data/atlas_link.txt": {
+      "checksum": "0ed9acd60661fe11f41b1711774f8190"
     },
-    "data/cohort_name.txt": {
-      "checksum": "b68c0072cd07c467e49acae4930b4b84"
+    "data/cohorts.csv": {
+      "checksum": "0db7fedd35bc57978142851bb9bd4432"
     },
-    "data/SYNPUF_110k_by_event.json": {
-      "checksum": "f5ee2ff5879493213af9318a998bf8ff"
+    "data/readme.md": {
+      "checksum": "fc6d188c6a4b9733900adc59cc67ee5e"
     },
-    "data/SYNPUF_110k_by_person.json": {
-      "checksum": "17c71a508ad3f102e074d081b205c24f"
+    "data/repo_link.txt": {
+      "checksum": "a57b4d42ae1db9704674a2eac0172f16"
     },
-    "data/synpuf-110k_by_event.json": {
-      "checksum": "f5ee2ff5879493213af9318a998bf8ff"
+    "data/SYNPUF1K_targetId1788144_outcomeId1773979.json": {
+      "checksum": "ce2e05e2414c00602cd2749543dc06ae"
     },
-    "data/synpuf-110k_by_person.json": {
-      "checksum": "17c71a508ad3f102e074d081b205c24f"
+    "data/SYNPUF1K_targetId1788144_outcomeId1788147.json": {
+      "checksum": "9cd86808dd10cebbd227f7d69f461d65"
+    },
+    "data/SYNPUF1K_targetId1788146_outcomeId1773979.json": {
+      "checksum": "f9336a50d5fab934cfbe4756e22d1d36"
+    },
+    "data/SYNPUF1K_targetId1788146_outcomeId1788147.json": {
+      "checksum": "7e5b7b666eb4c1f630c58ca68c3abd01"
+    },
+    "data/SYNPUF5PCT_targetId1788144_outcomeId1773979.json": {
+      "checksum": "ce2e05e2414c00602cd2749543dc06ae"
+    },
+    "data/SYNPUF5PCT_targetId1788144_outcomeId1788147.json": {
+      "checksum": "f752ba9447fbe88243ecff840087e096"
+    },
+    "data/SYNPUF5PCT_targetId1788146_outcomeId1773979.json": {
+      "checksum": "f9336a50d5fab934cfbe4756e22d1d36"
+    },
+    "data/SYNPUF5PCT_targetId1788146_outcomeId1788147.json": {
+      "checksum": "7e5b7b666eb4c1f630c58ca68c3abd01"
     },
     "read_data.R": {
-      "checksum": "e9a7f5a6bcafffd2d4a0b2f8e9533eff"
+      "checksum": "1e604d39dbaca5ccd669330fc526acec"
     },
     "scratch/app2.R": {
       "checksum": "ce2c15b91f59c38d46c9a3c4194cc40b"
-    },
-    "scratch/attrition plot.R": {
-      "checksum": "a7de1c9330b591ee238a4c9685fbb2ef"
     },
     "scratch/data.R": {
       "checksum": "056a9e1e6ad4d9868ff294d0ef6598d8"
@@ -3047,6 +2987,9 @@
     },
     "scratch/example.R": {
       "checksum": "089a7362fd24695fd6d17b2de017221a"
+    },
+    "scratch/incidence rate example data.R": {
+      "checksum": "8fc401e5fe0cdb8bac04f3b7b4bd2532"
     },
     "scratch/inst/examples/ediaspora-shiny.R": {
       "checksum": "a7df0b7fc90197e4b3e3dad9194e5ff2"
@@ -3110,6 +3053,33 @@
     },
     "scratch/js/classes/Treemap.js": {
       "checksum": "3308a06b2e985be13e16e74d8a941578"
+    },
+    "scratch/old/cohort_definitions.json": {
+      "checksum": "7f8ad928734740dc18f3d529133639f5"
+    },
+    "scratch/old/SYNPUF10k_targetId1787664_outcomeId1772380.json": {
+      "checksum": "ffc1484245bca52538abe2de2c0e6c1e"
+    },
+    "scratch/old/SYNPUF10k_targetId1787664_outcomeId1783511.json": {
+      "checksum": "0f7e945d02c30ab9198de440d974aa1a"
+    },
+    "scratch/old/SYNPUF10k_targetId178778_outcomeId1772380.json": {
+      "checksum": "90add7969ab45b0d7fd7c6833ea7a91e"
+    },
+    "scratch/old/SYNPUF10k_targetId178778_outcomeId1783511.json": {
+      "checksum": "9fc775c208835a9ae955350b53cb8ade"
+    },
+    "scratch/old/SYNPUF5PCT_targetId1787664_outcomeId1772380.json": {
+      "checksum": "ffc1484245bca52538abe2de2c0e6c1e"
+    },
+    "scratch/old/SYNPUF5PCT_targetId1787664_outcomeId1783511.json": {
+      "checksum": "0f7e945d02c30ab9198de440d974aa1a"
+    },
+    "scratch/old/SYNPUF5PCT_targetId178778_outcomeId1772380.json": {
+      "checksum": "90add7969ab45b0d7fd7c6833ea7a91e"
+    },
+    "scratch/old/SYNPUF5PCT_targetId178778_outcomeId1783511.json": {
+      "checksum": "9fc775c208835a9ae955350b53cb8ade"
     },
     "scratch/R/treemap.R": {
       "checksum": "e6f2fd7dfb4aed23a326748337d18632"
