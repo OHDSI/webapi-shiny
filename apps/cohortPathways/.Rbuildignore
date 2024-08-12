@@ -1,4 +1,4 @@
 ^renv$
 ^renv\.lock$
-^.*\.Rproj$
+^cohortPathways\.Rproj$
 ^\.Rproj\.user$
