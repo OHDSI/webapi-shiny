@@ -21,7 +21,7 @@ atlas_url <- PROPERTIES$atlas_url
 analysis_name <- PROPERTIES$analysis_name
 datasource_summary_file <- file.path(data_dir, "datasource_summary.json")
 app_data <- purrr::map(
-  csv_files, ~data.table::fread(., data.table = T) %>%
+  csv_files, ~ data.table::fread(., data.table = T) %>%
     mutate(`Covariate short name` = as.character(`Covariate short name`)) %>%
     mutate(`Covariate short name` = tolower(`Covariate short name`)) %>%
     mutate(`Covariate short name` = gsub("^ ", "", `Covariate short name`)) %>%
@@ -30,37 +30,49 @@ app_data <- purrr::map(
     mutate(
       Percent = tryCatch(
         round(Percent, digits = 1),
-        error = function(z) return(NA)
+        error = function(z) {
+          return(NA)
+        }
       )
     ) %>%
     mutate(
       Avg = tryCatch(
         round(Avg, digits = 1),
-        error = function(z) return(NA)
+        error = function(z) {
+          return(NA)
+        }
       )
     ) %>%
     mutate(
       StdDev = tryCatch(
         round(StdDev, digits = 1),
-        error = function(z) return(NA)
+        error = function(z) {
+          return(NA)
+        }
       )
     ) %>%
     mutate(
       `Target percent` = tryCatch(
         round(`Target percent`, digits = 1),
-        error = function(z) return(NA)
+        error = function(z) {
+          return(NA)
+        }
       )
     ) %>%
     mutate(
       `Cohort percent` = tryCatch(
         round(`Cohort percent`, digits = 1),
-        error = function(z) return(NA)
+        error = function(z) {
+          return(NA)
+        }
       )
     ) %>%
     mutate(
       `Std. Diff Of Mean` = tryCatch(
         round(`Std. Diff Of Mean`, digits = 1),
-        error = function(z) return(NA)
+        error = function(z) {
+          return(NA)
+        }
       )
     ) %>%
     select(-contains("Value field")) %>%
@@ -73,24 +85,30 @@ app_data <- purrr::map(
 )
 empty_columns <- lapply(
   seq_len(length(app_data)),
-  function(x) colSums(
-    is.na(app_data[[x]]) |
-      app_data[[x]] == ""
-  ) ==
-    nrow(is.na(app_data[[x]]))
+  function(x) {
+    colSums(
+      is.na(app_data[[x]]) |
+        app_data[[x]] == ""
+    ) ==
+      nrow(is.na(app_data[[x]]))
+  }
 )
 app_data <- lapply(
   seq_len(length(app_data)),
-  function(x) app_data[[x]] %>%
-    purrr::discard(empty_columns[[x]])
-)
-app_data <- lapply(
-  seq_len(length(app_data)),
-  function(x) if (!is.null(app_data[[x]]$Avg)) {
+  function(x) {
     app_data[[x]] %>%
-      mutate(Boxplot = x)
-  } else {
-    app_data[[x]]
+      purrr::discard(empty_columns[[x]])
+  }
+)
+app_data <- lapply(
+  seq_len(length(app_data)),
+  function(x) {
+    if (!is.null(app_data[[x]]$Avg)) {
+      app_data[[x]] %>%
+        mutate(Boxplot = x)
+    } else {
+      app_data[[x]]
+    }
   }
 )
 lapply(
@@ -99,22 +117,22 @@ lapply(
     if (!is.null(app_data[[a]]$Avg)) {
       output <- ggplot(app_data[[a]], aes(x = `Analysis name`, fill = `Analysis name`)) +
         geom_boxplot(
-          aes(ymin = Min, lower = P10, middle = Median, upper = P90, ymax = Max,),
+          aes(ymin = Min, lower = P10, middle = Median, upper = P90, ymax = Max, ),
           alpha = 0, colour = "#0c439c", stat = "identity", show.legend = FALSE
         ) +
-        coord_flip() + theme(
-        axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks = element_blank(),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(fill = "transparent"),
-        plot.background = element_rect(fill = "transparent", color = NA)
-      )
+        coord_flip() +
+        theme(
+          axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks = element_blank(),
+          panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(fill = "transparent"),
+          plot.background = element_rect(fill = "transparent", color = NA)
+        )
       png(
         sprintf("www/p%s.png", a),
         width = 170, height = 130, bg = "transparent"
       )
       plot(output)
       dev.off()
-    }
-    else {
+    } else {
       return()
     }
   }
@@ -124,8 +142,7 @@ targetCohort <- list()
 for (z in 1:length(app_data)) {
   if (!is.null(app_data[[z]]$`Comparator cohort name`)) {
     comparatorCohort[[z]] <- app_data[[z]]
-  }
-  else {
+  } else {
     targetCohort[[z]] <- app_data[[z]]
   }
 }
@@ -170,10 +187,10 @@ inputListNames <- list()
 for (x in 1:(length(inputFilesNames[[1]]))) {
   inputListNames[[x]] <- inputFilesNames[[1]][x]
 }
-for (x in 1:(length(inputFilesNames[[1]])/2)) {
+for (x in 1:(length(inputFilesNames[[1]]) / 2)) {
   targetListNames[[x]] <- inputFilesNames[[1]][x]
 }
-for (y in ((length(inputFilesNames[[1]])/2) +
+for (y in ((length(inputFilesNames[[1]]) / 2) +
   1):(length(inputFilesNames[[1]]))) {
   comparatorListNames[[y]] <- inputFilesNames[[1]][y]
 }

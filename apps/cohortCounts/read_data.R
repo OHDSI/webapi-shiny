@@ -10,8 +10,9 @@ read_data <- function(path) {
     for (e in c("event", "person")) {
       file_path <- file.path(path, glue::glue("{d}_by_{e}.json"))
       logger::log_info(paste("File path", file_path))
-      if (!file.exists(file_path))
+      if (!file.exists(file_path)) {
         stop(paste(file_path, "cannot be found!"))
+      }
       x <- jsonlite::read_json(file_path, simplifyVector = FALSE)
       logger::log_info(paste("basecount", x$summary$baseCount))
       if (x$summary$baseCount == 0) {
@@ -23,8 +24,7 @@ read_data <- function(path) {
           pct_diff = numeric()
         )
         logger::log_info("No Data ---")
-      }
-      else {
+      } else {
         logger::log_info("Nonzero basecount")
         app_data[[d]][[e]][["summary_table"]] <- dplyr::tibble(
           initial_index_events = x$summary$baseCount, final_index_events = x$summary$finalCount,
@@ -42,35 +42,35 @@ read_data <- function(path) {
         app_data[[d]][[e]][["attrition_table"]] <- purrr::map(
           seq(num_rules),
           function(x) {
-          x <- paste(
-            seq(x),
-            collapse = ","
-          )
-          app_data[[d]][[e]][["treemap_table"]] %>%
-            filter(
-            grepl(
-              paste0("^", x),
-              name
+            x <- paste(
+              seq(x),
+              collapse = ","
             )
-          ) %>%
-            summarise(value = sum(value)) %>%
-            transmute(name = x, n = value)
+            app_data[[d]][[e]][["treemap_table"]] %>%
+              filter(
+                grepl(
+                  paste0("^", x),
+                  name
+                )
+              ) %>%
+              summarise(value = sum(value)) %>%
+              transmute(name = x, n = value)
           }
         ) %>%
           bind_rows() %>%
-          mutate(pct_remain = n/.env$total) %>%
+          mutate(pct_remain = n / .env$total) %>%
           mutate(
-          pct_diff = ifelse(
-            name == "1", 1 - pct_remain, lag(pct_remain) -
-            pct_remain
-          )
-        ) %>%
+            pct_diff = ifelse(
+              name == "1", 1 - pct_remain, lag(pct_remain) -
+                pct_remain
+            )
+          ) %>%
           mutate(
-          ID = purrr::map_dbl(
-            stringr::str_split(name, ","),
-            ~max(as.numeric(.))
-          )
-        ) %>%
+            ID = purrr::map_dbl(
+              stringr::str_split(name, ","),
+              ~ max(as.numeric(.))
+            )
+          ) %>%
           left_join(app_data[[d]][[e]][["inclusion_table"]][, 1:2], by = "ID") %>%
           select(ID, `Inclusion Rule`, Count = n, pct_remain, pct_diff)
       }
@@ -89,11 +89,9 @@ tidy_treemap_data <- function(treemap_data) {
         stopifnot("name" %in% names(item))
         name <<- c(name, item$name)
         size <<- c(size, item$size)
-      }
-      else if (is.list(item)) {
+      } else if (is.list(item)) {
         recurse(item)
-      }
-      else {
+      } else {
         next
       }
     }

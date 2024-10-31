@@ -36,7 +36,8 @@ ui <- fluidPage(
     underline = TRUE, title = "Cohort Pathways", id = "nav", nav_panel(
       "Introduction", card(
         make_intro_page(
-          PROPERTIES, markdown_file = NULL, app_type = "cohort_pathway", datasource_summary_file,
+          PROPERTIES,
+          markdown_file = NULL, app_type = "cohort_pathway", datasource_summary_file,
           add_referenced_cohorts = TRUE, add_cohort_summary = FALSE
         )
       )

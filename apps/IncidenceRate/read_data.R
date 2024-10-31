@@ -1,4 +1,4 @@
-path = "data"
+path <- "data"
 read_data <- function(path) {
   library(dplyr)
   library(stringr)
@@ -38,42 +38,41 @@ read_data <- function(path) {
     mutate(
       x = purrr::map(
         file.path("data", filename),
-        ~jsonlite::read_json(., simplifyVector = FALSE)
+        ~ jsonlite::read_json(., simplifyVector = FALSE)
       )
     ) %>%
     mutate(subgroup_id = NA_real_, subgroup_name = NA_character_) %>%
-    mutate(total_persons = purrr::map_int(x, ~.[["summary"]]$totalPersons)) %>%
-    mutate(time_at_risk = purrr::map_int(x, ~.[["summary"]]$timeAtRisk)) %>%
-    mutate(cases = purrr::map_int(x, ~.[["summary"]]$cases)) %>%
+    mutate(total_persons = purrr::map_int(x, ~ .[["summary"]]$totalPersons)) %>%
+    mutate(time_at_risk = purrr::map_int(x, ~ .[["summary"]]$timeAtRisk)) %>%
+    mutate(cases = purrr::map_int(x, ~ .[["summary"]]$cases)) %>%
     mutate(
-      proportion_per_1k_persons = cases * 1000/total_persons, rate_per_1k_years = cases * 1000/time_at_risk
+      proportion_per_1k_persons = cases * 1000 / total_persons, rate_per_1k_years = cases * 1000 / time_at_risk
     ) %>%
     mutate(
       subgroup_df = map(
-        x, ~{
+        x, ~ {
           stratify_stats <- .x$stratifyStats
           result <- if (!is.null(stratify_stats) &&
-          length(stratify_stats) !=
-            0) {
-          tibble(x = stratify_stats) %>%
-            unnest_wider(col = x) %>%
-            transmute(
-            subgroup_id = id, subgroup_name = name, total_persons = totalPersons, time_at_risk = timeAtRisk,
-            cases = cases, proportion_per_1k_persons = cases * 1000/totalPersons, rate_per_1k_years = cases *
-              1000/timeAtRisk
-          )
-          }
-          else {
-          tibble(
-            subgroup_id = NA_real_, subgroup_name = NA_character_, total_persons = NA_integer_,
-            time_at_risk = NA_integer_, cases = NA_integer_, proportion_per_1k_persons = NA_real_,
-            rate_per_1k_years = NA_real_
-          )
+            length(stratify_stats) !=
+              0) {
+            tibble(x = stratify_stats) %>%
+              unnest_wider(col = x) %>%
+              transmute(
+                subgroup_id = id, subgroup_name = name, total_persons = totalPersons, time_at_risk = timeAtRisk,
+                cases = cases, proportion_per_1k_persons = cases * 1000 / totalPersons, rate_per_1k_years = cases *
+                  1000 / timeAtRisk
+              )
+          } else {
+            tibble(
+              subgroup_id = NA_real_, subgroup_name = NA_character_, total_persons = NA_integer_,
+              time_at_risk = NA_integer_, cases = NA_integer_, proportion_per_1k_persons = NA_real_,
+              rate_per_1k_years = NA_real_
+            )
           }
         }
       )
     )
-  app_data = list()
+  app_data <- list()
   app_data[["summary_table"]] <- df %>%
     select(
       data_source, target, outcome, total_persons, time_at_risk, cases, proportion_per_1k_persons,
@@ -88,7 +87,7 @@ read_data <- function(path) {
     select(data_source, target, outcome, x) %>%
     mutate(
       treemap_data = purrr::map(
-        x, ~.$treemapData %>%
+        x, ~ .$treemapData %>%
           jsonlite::fromJSON(simplifyVector = FALSE) %>%
           tidy_treemap_data()
       )
@@ -97,7 +96,7 @@ read_data <- function(path) {
     tidyr::unnest(treemap_data) %>%
     rename(total_persons = totalPersons, subset_ids = name, time_at_risk = timeAtRisk) %>%
     mutate(
-      proportion_per_1k_persons = cases * 1000/total_persons, rate_per_1k_years = cases * 1000/time_at_risk
+      proportion_per_1k_persons = cases * 1000 / total_persons, rate_per_1k_years = cases * 1000 / time_at_risk
     )
   print(app_data[["treemap_table"]])
   return(app_data)
@@ -116,11 +115,9 @@ tidy_treemap_data <- function(treemap_data) {
         size <<- c(size, item$size)
         cases <<- c(cases, item$cases)
         timeAtRisk <<- c(timeAtRisk, item$timeAtRisk)
-      }
-      else if (is.list(item)) {
+      } else if (is.list(item)) {
         recurse(item)
-      }
-      else {
+      } else {
         next
       }
     }
