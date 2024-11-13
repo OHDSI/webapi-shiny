@@ -14,7 +14,7 @@ if (file.exists("helpers.R")) {
 }
 PROPERTIES <- properties::read.properties(file.path(data_dir, "app.properties"))
 repo_link <- PROPERTIES$repo_link
-atlas_link <- PROPERTIES$atlas_link
+atlas_link <- PROPERTIES$atlas_url
 datasource <- PROPERTIES$datasource
 datasource_name <- PROPERTIES$datasource_name
 asset_name <- PROPERTIES$asset_name
