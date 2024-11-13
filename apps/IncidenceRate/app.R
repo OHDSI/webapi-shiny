@@ -48,13 +48,9 @@ ui <- fluidPage(
   shinyjs::useShinyjs(), shiny::tags$head(custom_styling()),
   bslib::page_navbar(
     theme = bslib::bs_theme(`navbar-bg` = "#005480", fg = "black", bg = "white"),
-    title = "Incidence Rate Analysis", id = "nav", sidebar = sidebar(
-      conditionalPanel("input.nav === 'Introduction'", "Application's and cohort descriptions."),
-      conditionalPanel(
-        "input.nav === 'Analysis'", selectInput("target_id", "Target cohorts", target_cohorts),
-        selectInput("outcome_id", "Outcome cohorts", outcome_cohorts)
-      )
-    ),
+    title = "Incidence Rate Analysis", 
+    id = "nav", 
+    
     nav_panel(
       "Introduction", card(
         make_intro_page(
@@ -64,26 +60,39 @@ ui <- fluidPage(
       )
     ),
     nav_panel(
-      "Analysis", card(
-        tags$h5("Summary Statistics for the Cohort"),
-        tags$span(
-          bslib::tooltip(
-          shiny::icon("circle-exclamation"),
-          HTML("Dashboard, design and visualisation may differ from those in ATLAS")
-        )
+      "Analysis", 
+      
+      layout_sidebar(
+        sidebar = sidebar(
+          conditionalPanel("input.nav === 'Introduction'", "Application's and cohort descriptions."),
+          conditionalPanel(
+            "input.nav === 'Analysis'", selectInput("target_id", "Target cohorts", target_cohorts),
+            selectInput("outcome_id", "Outcome cohorts", outcome_cohorts)
+          )
         ),
-        reactableOutput("summary_table"),
-        tags$br(), tags$h5("Summary Statistics for Strata within the Cohort"),
-        reactableOutput("subgroup_table"),
-        htmlOutput("selected_subset_text"),
-        tags$span(
-          bslib::tooltip(
-          shiny::icon("circle-info"),
-          HTML("Table legend:<br>1 criteria passed<br>0 criteria failed")
-        ),
-          echarts4rOutput("treemap")
+        card(
+          tags$h5("Summary Statistics for the Cohort"),
+          tags$span(
+            bslib::tooltip(
+              shiny::icon("circle-exclamation"),
+              HTML("Dashboard, design and visualisation may differ from those in ATLAS")
+            )
+          ),
+          reactableOutput("summary_table"),
+          tags$br(), tags$h5("Summary Statistics for Strata within the Cohort"),
+          reactableOutput("subgroup_table"),
+          htmlOutput("selected_subset_text"),
+          tags$span(
+            bslib::tooltip(
+              shiny::icon("circle-info"),
+              HTML("Table legend:<br>1 criteria passed<br>0 criteria failed")
+            ),
+            echarts4rOutput("treemap")
+          )
         )
       ),
+      
+      
     ),
     nav_spacer(), nav_menu(
       title = "Links", align = "right", nav_item(a("Git Repository", href = repo_link, target = "_blank")),
