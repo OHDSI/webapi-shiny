@@ -111,7 +111,8 @@ server <- function(input, output, session) {
               "Count"
           )
             df <- df %>%
-            dplyr::select(1:(count_index - 1), Boxplot, Count, (count_index + 1):ncol(df))
+              dplyr::select(1:(count_index - 1), Boxplot, Count, (count_index + 1):ncol(df)) %>%
+              dplyr::mutate(Count = scales::comma(as.numeric(Count)))
             tags$div(
             class = "header", checked = NA, tags$h4(cohortNames$targetCohort[[r()[[x]]]], align = "right"),
             tags$hr(style = "border-top: 1px solid #000000;"),
@@ -133,24 +134,28 @@ server <- function(input, output, session) {
           else {
             df <- targetCohort[[r()[[x]]]]
             tags$div(
-            class = "header", checked = NA, tags$h4(cohortNames$targetCohort[[r()[[x]]]], align = "right"),
-            tags$hr(style = "border-top: 1px solid #000000;"),
-            T1[[x]] <- reactable(
-              df, sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,
-              theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
-              showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
-              defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900),
-              columns = list(
-              Percent = colDef(
-                name = "N (%)", style = function(value) {
-                value <- as.numeric(value)
-                bar_style(width = value/100, color = "lightblue")
-                }, cell = function(value, index, rowInfo) {
-                count <- df[index, ]$Count
-                glue::glue("{count} ({value}%)")
-                }
-              ),
-              Count = colDef(show = FALSE)
+              class = "header", checked = NA, tags$h4(cohortNames$targetCohort[[r()[[x]]]], align = "right"),
+              tags$hr(style = "border-top: 1px solid #000000;"),
+              T1[[x]] <- reactable(
+                df,
+                sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,
+                theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
+                showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
+                defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900),
+                columns = list(
+                  Percent = colDef(
+                    name = "N (%)", style = function(value) {
+                      value <- as.numeric(value)
+                      bar_style(width = value / 100, color = "lightblue")
+                    }, cell = function(value, index, rowInfo) {
+                      count <- df[index, ]$Count %>%
+                        scales::comma()
+                      glue::glue("{count} ({value}%)")
+                    }
+                  ),
+                  Count = colDef(show = FALSE)
+                )
+              )
             )
             )
           )
