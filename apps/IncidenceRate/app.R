@@ -124,21 +124,30 @@ server <- function(input, output) {
         "{x$cases} Cases, {x$time_at_risk} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {x$total_persons} (%) people, {n_critera_passed} criteria passed, {n_critera_failed} criteria failed."
       )
     }
-  )
-  output$summary_table <- renderReactable(
-    {
-      app_data$summary_table %>%
-        filter(data_source == datasource, target == input$target_id, outcome == input$outcome_id) %>%
-        mutate(
-          proportion_per_1k_persons = round(proportion_per_1k_persons, 2),
-          rate_per_1k_years = round(rate_per_1k_years, 2)
-        ) %>%
-        select(
-          Persons = total_persons, Cases = cases, `Proportion \n(per 1k person-years)` = proportion_per_1k_persons,
-          `Time at risk \n(years)` = time_at_risk, `Rate \n(per 1k person-years)` = rate_per_1k_years
-        ) %>%
-        reactable(
-          columns = list(
+    output$description <- renderText(ROhdsiWebApi::getCohortDefinition(cohortId = 1747753, api_url)[[3]])
+    n_criteria <- app_data$subgroup_table %>%
+      filter(data_source == datasource, target == input$target_id, outcome == input$outcome_id) %>%
+      nrow()
+    n_critera_passed <- length(stringr::str_split(x$subset_ids, ",")[[1]])
+    n_critera_failed <- n_criteria - n_critera_passed
+    glue::glue(
+      "{x$cases} Cases, {x$time_at_risk} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {x$total_persons} (%) people, {n_critera_passed} criteria passed, {n_critera_failed} criteria failed."
+    )
+  })
+  output$summary_table <- renderReactable({
+    app_data$summary_table %>%
+      filter(data_source == datasource, target == input$target_id, outcome == input$outcome_id) %>%
+      mutate(
+        proportion_per_1k_persons = round(proportion_per_1k_persons, 2),
+        rate_per_1k_years = round(rate_per_1k_years, 2)
+      ) %>%
+      select(
+        Persons = total_persons, Cases = cases, `Proportion \n(per 1k person-years)` = proportion_per_1k_persons,
+        `Time at risk \n(years)` = time_at_risk, `Rate \n(per 1k person-years)` = rate_per_1k_years
+      ) %>%
+      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), scales::comma)) %>%
+      reactable(
+        columns = list(
           Persons = colDef(header = tippy("Persons", "Total number of persons in the cohort.", placement = "right")),
           Cases = colDef(
             header = tippy("Cases", "Total number of persons that arrive to one the end point.", placement = "right")
@@ -180,18 +189,20 @@ server <- function(input, output) {
           list(color = "red")
         else list(color = "black")
       }
-      app_data$subgroup_table %>%
-        filter(data_source == datasource, target == input$target_id, outcome == input$outcome_id) %>%
-        mutate(
-          proportion_per_1k_persons = round(proportion_per_1k_persons, 2),
-          rate_per_1k_years = round(rate_per_1k_years, 2)
-        ) %>%
-        select(
-          `Stratify rule` = subgroup_name, Persons = total_persons, Cases = cases, `Proportion (per 1k person-years)` = proportion_per_1k_persons,
-          `Time at risk (years)` = time_at_risk, `Rate (per 1k person-years)` = rate_per_1k_years
-        ) %>%
-        reactable(
-          columns = list(
+    }
+    app_data$subgroup_table %>%
+      filter(data_source == datasource, target == input$target_id, outcome == input$outcome_id) %>%
+      mutate(
+        proportion_per_1k_persons = round(proportion_per_1k_persons, 2),
+        rate_per_1k_years = round(rate_per_1k_years, 2)
+      ) %>%
+      select(
+        `Stratify rule` = subgroup_name, Persons = total_persons, Cases = cases, `Proportion (per 1k person-years)` = proportion_per_1k_persons,
+        `Time at risk (years)` = time_at_risk, `Rate (per 1k person-years)` = rate_per_1k_years
+      ) %>%
+      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), scales::comma)) %>%
+      reactable(
+        columns = list(
           `Stratify rule` = colDef(
             header = tippy("Stratify rule", "Groups defined inside the cohort.", placement = "right"),
             style = style_function
