@@ -244,6 +244,7 @@ server <- function(input, output) {
           ) %>%
             dplyr::mutate(dplyr::across(dplyr::everything(), ~tidyr::replace_na(., 0))) %>%
             dplyr::mutate(to_gain = sprintf("%.2f%%", to_gain)) %>%
+            dplyr::mutate(Count = scales::comma(as.numeric(Count))) %>%
             dplyr::rename(N = Count, `% Satisfied` = Percent, `% To-Gain` = to_gain) %>%
             dplyr::select(-total, -percent_num) %>%
             reactable(
@@ -272,10 +273,10 @@ server <- function(input, output) {
           else if (attritionView() == 1) {
           app_data[[1]][[input$level]]$attrition_table %>%
             mutate(
-            pct_remain = round(pct_remain, 4),
-            pct_diff = round(pct_diff, 4)
-          ) %>%
-            reactable(
+              Count = scales::comma(as.numeric(Count)),
+              pct_remain = round(pct_remain, 4),
+              pct_diff = round(pct_diff, 4)
+            ) %>%            reactable(
             sortable = FALSE, bordered = TRUE, columns = list(
               ID = colDef(name = "ID", maxWidth = 40),
               `Inclusion Rule` = colDef(
