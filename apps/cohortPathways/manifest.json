@@ -92,6 +92,28 @@
         "Built": "R 4.3.0; ; 2024-06-25 22:11:21 UTC; unix"
       }
     },
+    "RColorBrewer": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Package": "RColorBrewer",
+        "Version": "1.1-3",
+        "Date": "2022-04-03",
+        "Title": "ColorBrewer Palettes",
+        "Authors@R": "c(person(given = \"Erich\", family = \"Neuwirth\", role = c(\"aut\",\n        \"cre\"), email = \"erich.neuwirth@univie.ac.at\"))",
+        "Author": "Erich Neuwirth [aut, cre]",
+        "Maintainer": "Erich Neuwirth <erich.neuwirth@univie.ac.at>",
+        "Depends": "R (>= 2.0.0)",
+        "Description": "Provides color schemes for maps (and other graphics)\n        designed by Cynthia Brewer as described at http://colorbrewer2.org.",
+        "License": "Apache License 2.0",
+        "Packaged": "2022-04-03 10:26:20 UTC; neuwirth",
+        "NeedsCompilation": "no",
+        "Repository": "RSPM",
+        "Date/Publication": "2022-04-03 19:20:13 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2024-06-25 22:12:44 UTC; unix"
+      }
+    },
     "Rcpp": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.posit.co/cran/latest",
@@ -304,6 +326,42 @@
         "Repository": "RSPM",
         "Date/Publication": "2024-06-21 21:00:07 UTC",
         "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-06-25 22:12:00 UTC; unix"
+      }
+    },
+    "colorspace": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Package": "colorspace",
+        "Version": "2.1-1",
+        "Date": "2024-07-26",
+        "Title": "A Toolbox for Manipulating and Assessing Colors and Palettes",
+        "Authors@R": "c(person(given = \"Ross\", family = \"Ihaka\", role = \"aut\", email = \"ihaka@stat.auckland.ac.nz\"),\n             person(given = \"Paul\", family = \"Murrell\", role = \"aut\", email = \"paul@stat.auckland.ac.nz\",\n                    comment = c(ORCID = \"0000-0002-3224-8858\")),\n             person(given = \"Kurt\", family = \"Hornik\", role = \"aut\", email = \"Kurt.Hornik@R-project.org\",\n\t\t    comment = c(ORCID = \"0000-0003-4198-9911\")),\n             person(given = c(\"Jason\", \"C.\"), family = \"Fisher\", role = \"aut\", email = \"jfisher@usgs.gov\",\n                    comment = c(ORCID = \"0000-0001-9032-8912\")),\n             person(given = \"Reto\", family = \"Stauffer\", role = \"aut\", email = \"Reto.Stauffer@uibk.ac.at\",\n                    comment = c(ORCID = \"0000-0002-3798-5507\")),\n             person(given = c(\"Claus\", \"O.\"), family = \"Wilke\", role = \"aut\", email = \"wilke@austin.utexas.edu\",\n                    comment = c(ORCID = \"0000-0002-7470-9261\")),\n             person(given = c(\"Claire\", \"D.\"), family = \"McWhite\", role = \"aut\", email = \"claire.mcwhite@utmail.utexas.edu\",\n                    comment = c(ORCID = \"0000-0001-7346-3047\")),\n             person(given = \"Achim\", family = \"Zeileis\", role = c(\"aut\", \"cre\"), email = \"Achim.Zeileis@R-project.org\",\n                    comment = c(ORCID = \"0000-0003-0918-3766\")))",
+        "Description": "Carries out mapping between assorted color spaces including RGB, HSV, HLS,\n             CIEXYZ, CIELUV, HCL (polar CIELUV), CIELAB, and polar CIELAB.\n\t     Qualitative, sequential, and diverging color palettes based on HCL colors\n\t     are provided along with corresponding ggplot2 color scales.\n\t     Color palette choice is aided by an interactive app (with either a Tcl/Tk\n\t     or a shiny graphical user interface) and shiny apps with an HCL color picker and a\n\t     color vision deficiency emulator. Plotting functions for displaying\n\t     and assessing palettes include color swatches, visualizations of the\n\t     HCL space, and trajectories in HCL and/or RGB spectrum. Color manipulation\n\t     functions include: desaturation, lightening/darkening, mixing, and\n\t     simulation of color vision deficiencies (deutanomaly, protanomaly, tritanomaly).\n\t     Details can be found on the project web page at <https://colorspace.R-Forge.R-project.org/>\n\t     and in the accompanying scientific paper: Zeileis et al. (2020, Journal of Statistical\n\t     Software, <doi:10.18637/jss.v096.i01>).",
+        "Depends": "R (>= 3.0.0), methods",
+        "Imports": "graphics, grDevices, stats",
+        "Suggests": "datasets, utils, KernSmooth, MASS, kernlab, mvtnorm, vcd,\ntcltk, shiny, shinyjs, ggplot2, dplyr, scales, grid, png, jpeg,\nknitr, rmarkdown, RColorBrewer, rcartocolor, scico, viridis,\nwesanderson",
+        "VignetteBuilder": "knitr",
+        "License": "BSD_3_clause + file LICENSE",
+        "URL": "https://colorspace.R-Forge.R-project.org/, https://hclwizard.org/",
+        "BugReports": "https://colorspace.R-Forge.R-project.org/contact.html",
+        "LazyData": "yes",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.3.1",
+        "NeedsCompilation": "yes",
+        "Packaged": "2024-07-26 15:40:41 UTC; zeileis",
+        "Author": "Ross Ihaka [aut],\n  Paul Murrell [aut] (<https://orcid.org/0000-0002-3224-8858>),\n  Kurt Hornik [aut] (<https://orcid.org/0000-0003-4198-9911>),\n  Jason C. Fisher [aut] (<https://orcid.org/0000-0001-9032-8912>),\n  Reto Stauffer [aut] (<https://orcid.org/0000-0002-3798-5507>),\n  Claus O. Wilke [aut] (<https://orcid.org/0000-0002-7470-9261>),\n  Claire D. McWhite [aut] (<https://orcid.org/0000-0001-7346-3047>),\n  Achim Zeileis [aut, cre] (<https://orcid.org/0000-0003-0918-3766>)",
+        "Maintainer": "Achim Zeileis <Achim.Zeileis@R-project.org>",
+        "Repository": "RSPM",
+        "Date/Publication": "2024-07-26 17:10:02 UTC",
+        "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-07-27 05:34:07 UTC; unix",
+        "RemoteType": "standard",
+        "RemotePkgRef": "colorspace",
+        "RemoteRef": "colorspace",
+        "RemoteRepos": "https://packagemanager.posit.co/cran/latest",
+        "RemoteReposName": "CRAN",
+        "RemotePkgPlatform": "aarch64-apple-darwin20",
+        "RemoteSha": "2.1-1"
       }
     },
     "commonmark": {
@@ -586,6 +644,32 @@
         "Repository": "RSPM",
         "Date/Publication": "2023-12-08 03:30:02 UTC",
         "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-06-25 22:09:08 UTC; unix"
+      }
+    },
+    "farver": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Type": "Package",
+        "Package": "farver",
+        "Title": "High Performance Colour Space Manipulation",
+        "Version": "2.1.2",
+        "Authors@R": "c(\n    person(\"Thomas Lin\", \"Pedersen\", , \"thomas.pedersen@posit.co\", role = c(\"cre\", \"aut\"),\n           comment = c(ORCID = \"0000-0002-5147-4711\")),\n    person(\"Berendea\", \"Nicolae\", role = \"aut\",\n           comment = \"Author of the ColorSpace C++ library\"),\n    person(\"Romain\", \"François\", , \"romain@purrple.cat\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-2444-4226\")),\n    person(\"Posit, PBC\", role = c(\"cph\", \"fnd\"))\n  )",
+        "Description": "The encoding of colour can be handled in many different ways,\n    using different colour spaces. As different colour spaces have\n    different uses, efficient conversion between these representations are\n    important. The 'farver' package provides a set of functions that gives\n    access to very fast colour space conversion and comparisons\n    implemented in C++, and offers speed improvements over the\n    'convertColor' function in the 'grDevices' package.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://farver.data-imaginist.com,\nhttps://github.com/thomasp85/farver",
+        "BugReports": "https://github.com/thomasp85/farver/issues",
+        "Suggests": "covr, testthat (>= 3.0.0)",
+        "Config/testthat/edition": "3",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.3.1",
+        "NeedsCompilation": "yes",
+        "Packaged": "2024-05-13 08:31:27 UTC; thomas",
+        "Author": "Thomas Lin Pedersen [cre, aut]\n    (<https://orcid.org/0000-0002-5147-4711>),\n  Berendea Nicolae [aut] (Author of the ColorSpace C++ library),\n  Romain François [aut] (<https://orcid.org/0000-0002-2444-4226>),\n  Posit, PBC [cph, fnd]",
+        "Maintainer": "Thomas Lin Pedersen <thomas.pedersen@posit.co>",
+        "Repository": "RSPM",
+        "Date/Publication": "2024-05-13 09:33:09 UTC",
+        "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-06-25 22:09:34 UTC; unix"
       }
     },
     "fastmap": {
@@ -973,6 +1057,29 @@
         "RemoteSha": "1.48"
       }
     },
+    "labeling": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Package": "labeling",
+        "Type": "Package",
+        "Title": "Axis Labeling",
+        "Version": "0.4.3",
+        "Date": "2023-08-29",
+        "Author": "Justin Talbot,",
+        "Maintainer": "Nuno Sempere <nuno.semperelh@gmail.com>",
+        "Description": "Functions which provide a range of axis labeling algorithms. ",
+        "License": "MIT + file LICENSE | Unlimited",
+        "Collate": "'labeling.R'",
+        "NeedsCompilation": "no",
+        "Imports": "stats, graphics",
+        "Packaged": "2023-08-29 21:01:57 UTC; loki",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-08-29 22:20:02 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2024-06-25 22:12:01 UTC; unix"
+      }
+    },
     "later": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.posit.co/cran/latest",
@@ -1176,6 +1283,31 @@
         "Repository": "RSPM",
         "Date/Publication": "2021-09-28 05:00:05 UTC",
         "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-06-25 22:09:27 UTC; unix"
+      }
+    },
+    "munsell": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Package": "munsell",
+        "Type": "Package",
+        "Title": "Utilities for Using Munsell Colours",
+        "Version": "0.5.1",
+        "Author": "Charlotte Wickham <cwickham@gmail.com>",
+        "Maintainer": "Charlotte Wickham <cwickham@gmail.com>",
+        "Description": "Provides easy access to, and manipulation of, the Munsell \n    colours. Provides a mapping between Munsell's \n    original notation (e.g. \"5R 5/10\") and hexadecimal strings suitable \n    for use directly in R graphics. Also provides utilities \n    to explore slices through the Munsell colour tree, to transform \n    Munsell colours and display colour palettes.",
+        "Suggests": "ggplot2, testthat",
+        "Imports": "colorspace, methods",
+        "License": "MIT + file LICENSE",
+        "URL": "https://cran.r-project.org/package=munsell,\nhttps://github.com/cwickham/munsell/",
+        "RoxygenNote": "7.3.1",
+        "Encoding": "UTF-8",
+        "BugReports": "https://github.com/cwickham/munsell/issues",
+        "NeedsCompilation": "no",
+        "Packaged": "2024-04-01 20:42:09 UTC; charlottewickham",
+        "Repository": "RSPM",
+        "Date/Publication": "2024-04-01 23:40:10 UTC",
+        "Built": "R 4.3.0; ; 2024-06-25 22:11:25 UTC; unix"
       }
     },
     "pillar": {
@@ -1654,6 +1786,35 @@
         "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-06-25 22:13:20 UTC; unix"
       }
     },
+    "scales": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Package": "scales",
+        "Title": "Scale Functions for Visualization",
+        "Version": "1.3.0",
+        "Authors@R": "c(\n    person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = c(\"aut\")),\n    person(\"Thomas Lin\", \"Pedersen\", , \"thomas.pedersen@posit.co\", role = c(\"cre\", \"aut\"),\n           comment = c(ORCID = \"0000-0002-5147-4711\")),\n    person(\"Dana\", \"Seidel\", role = \"aut\"),\n    person(\"Posit, PBC\", role = c(\"cph\", \"fnd\"))\n  )",
+        "Description": "Graphical scales map data to aesthetics, and provide methods\n    for automatically determining breaks and labels for axes and legends.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://scales.r-lib.org, https://github.com/r-lib/scales",
+        "BugReports": "https://github.com/r-lib/scales/issues",
+        "Depends": "R (>= 3.6)",
+        "Imports": "cli, farver (>= 2.0.3), glue, labeling, lifecycle, munsell (>=\n0.5), R6, RColorBrewer, rlang (>= 1.0.0), viridisLite",
+        "Suggests": "bit64, covr, dichromat, ggplot2, hms (>= 0.5.0), stringi,\ntestthat (>= 3.0.0)",
+        "Config/Needs/website": "tidyverse/tidytemplate",
+        "Config/testthat/edition": "3",
+        "Encoding": "UTF-8",
+        "LazyLoad": "yes",
+        "RoxygenNote": "7.2.3",
+        "NeedsCompilation": "yes",
+        "Packaged": "2023-11-27 20:27:59 UTC; thomas",
+        "Author": "Hadley Wickham [aut],\n  Thomas Lin Pedersen [cre, aut]\n    (<https://orcid.org/0000-0002-5147-4711>),\n  Dana Seidel [aut],\n  Posit, PBC [cph, fnd]",
+        "Maintainer": "Thomas Lin Pedersen <thomas.pedersen@posit.co>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-11-28 09:10:06 UTC",
+        "Built": "R 4.3.0; ; 2024-06-25 22:13:26 UTC; unix"
+      }
+    },
     "shiny": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.posit.co/cran/latest",
@@ -1873,30 +2034,29 @@
         "Package": "sunburstShinyWidget",
         "Type": "Package",
         "Title": "Sunburst HTML Widget",
-        "Version": "0.4.2",
+        "Version": "0.4.3",
         "Authors@R": "\n    person(\"Kamil\", \"Foltyński\", , \"kamil@foltynski.com\", role = c(\"aut\", \"cre\"))",
         "Description": "Ported Sunburst plot based on d3.js library to HTML Shiny Widget",
         "License": "MIT + file LICENSE",
         "Encoding": "UTF-8",
         "LazyData": "true",
-        "Depends": "shiny, shinydashboard",
-        "Imports": "pkgload, htmlwidgets, jsonlite, tidyr, bslib, glue, DT,\nshiny.info, tibble, dplyr, purrr",
+        "Depends": "shiny,\nshinydashboard",
+        "Imports": "pkgload,\nhtmlwidgets,\njsonlite,\ntidyr,\nbslib,\nglue,\nDT,\nshiny.info,\ntibble,\ndplyr,\npurrr,\nscales",
         "RoxygenNote": "7.3.2",
-        "RemoteType": "github",
-        "RemoteHost": "api.github.com",
-        "RemoteRepo": "sunburstShinyWidget",
-        "RemoteUsername": "Tazovsky",
-        "RemoteRef": "HEAD",
-        "RemoteSha": "4bcd1aa2d8f949e28073bbf7414163ca7e26f8ed",
-        "GithubRepo": "sunburstShinyWidget",
-        "GithubUsername": "Tazovsky",
-        "GithubRef": "HEAD",
-        "GithubSHA1": "4bcd1aa2d8f949e28073bbf7414163ca7e26f8ed",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-10-09 12:29:34 UTC; kamil_foltynski",
         "Author": "Kamil Foltyński [aut, cre]",
         "Maintainer": "Kamil Foltyński <kamil@foltynski.com>",
-        "Built": "R 4.3.2; ; 2024-10-09 12:29:34 UTC; unix"
+        "Built": "R 4.3.2; ; 2024-11-13 16:55:03 UTC; unix",
+        "RemoteType": "github",
+        "RemoteHost": "api.github.com",
+        "RemoteUsername": "Tazovsky",
+        "RemoteRepo": "sunburstShinyWidget",
+        "RemoteRef": "master",
+        "RemoteSha": "309d1c637cb8ecf6c0dc8ecb036654f829844b97",
+        "GithubHost": "api.github.com",
+        "GithubRepo": "sunburstShinyWidget",
+        "GithubUsername": "Tazovsky",
+        "GithubRef": "master",
+        "GithubSHA1": "309d1c637cb8ecf6c0dc8ecb036654f829844b97"
       }
     },
     "tibble": {
@@ -2084,6 +2244,33 @@
         "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-06-25 22:12:45 UTC; unix"
       }
     },
+    "viridisLite": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Package": "viridisLite",
+        "Type": "Package",
+        "Title": "Colorblind-Friendly Color Maps (Lite Version)",
+        "Version": "0.4.2",
+        "Date": "2023-05-02",
+        "Authors@R": "c(\n      person(\"Simon\", \"Garnier\", email = \"garnier@njit.edu\", role = c(\"aut\", \"cre\")),\n      person(\"Noam\", \"Ross\", email = \"noam.ross@gmail.com\", role = c(\"ctb\", \"cph\")),\n      person(\"Bob\", \"Rudis\", email = \"bob@rud.is\", role = c(\"ctb\", \"cph\")),\n      person(\"Marco\", \"Sciaini\", email = \"sciaini.marco@gmail.com\", role = c(\"ctb\", \"cph\")),\n      person(\"Antônio Pedro\", \"Camargo\", role = c(\"ctb\", \"cph\")),\n      person(\"Cédric\", \"Scherer\", email = \"scherer@izw-berlin.de\", role = c(\"ctb\", \"cph\"))\n  )",
+        "Maintainer": "Simon Garnier <garnier@njit.edu>",
+        "Description": "Color maps designed to improve graph readability for readers with \n    common forms of color blindness and/or color vision deficiency. The color \n    maps are also perceptually-uniform, both in regular form and also when \n    converted to black-and-white for printing. This is the 'lite' version of the \n    'viridis' package that also contains 'ggplot2' bindings for discrete and \n    continuous color and fill scales and can be found at \n    <https://cran.r-project.org/package=viridis>.",
+        "License": "MIT + file LICENSE",
+        "Encoding": "UTF-8",
+        "Depends": "R (>= 2.10)",
+        "Suggests": "hexbin (>= 1.27.0), ggplot2 (>= 1.0.1), testthat, covr",
+        "URL": "https://sjmgarnier.github.io/viridisLite/,\nhttps://github.com/sjmgarnier/viridisLite/",
+        "BugReports": "https://github.com/sjmgarnier/viridisLite/issues/",
+        "RoxygenNote": "7.2.3",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-05-02 21:38:46 UTC; simon",
+        "Author": "Simon Garnier [aut, cre],\n  Noam Ross [ctb, cph],\n  Bob Rudis [ctb, cph],\n  Marco Sciaini [ctb, cph],\n  Antônio Pedro Camargo [ctb, cph],\n  Cédric Scherer [ctb, cph]",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-05-02 23:50:02 UTC",
+        "Built": "R 4.3.0; ; 2024-06-25 22:11:09 UTC; unix"
+      }
+    },
     "withr": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.posit.co/cran/latest",
@@ -2220,10 +2407,10 @@
       "checksum": "9ab8fa2ce379ed6858fdb7c5c7f3108a"
     },
     ".Rprofile": {
-      "checksum": "09ca7bf785207b7deb1e2a9ce014131e"
+      "checksum": "0c89182f8363c307a297296506f3f406"
     },
     "app.R": {
-      "checksum": "e29c8683e01a7df953b39a5b9e9f8a5d"
+      "checksum": "ff5f337aee120d1ab2bca363ab941c4d"
     },
     "data-from-oleg/app.properties": {
       "checksum": "b016348b21f56847599ba3e138374b7c"
@@ -2240,35 +2427,53 @@
     "data-from-oleg/pathwayAnalysisResult.json": {
       "checksum": "c78a704a61875fb2ce1d90ddfdb32556"
     },
-    "data/app.properties": {
+    "data-test/app.properties": {
       "checksum": "0fe4718fb474731e0730ccfc6d9d48ac"
     },
-    "data/chartData.json": {
+    "data-test/chartData.json": {
       "checksum": "089e27fd3782382905c8386721bd2fb5"
     },
-    "data/datasource_summary.json": {
+    "data-test/datasource_summary.json": {
       "checksum": "1b5439bc85e47612212731f975e64f64"
     },
-    "data/design.json": {
+    "data-test/design.json": {
       "checksum": "63dadb0778ef47db959a32064cada5b9"
     },
-    "data/pathwayAnalysis.json": {
+    "data-test/pathwayAnalysis.json": {
       "checksum": "3610b92147d8456764441d1f7f25d202"
     },
-    "data/pathwayAnalysisResult.json": {
+    "data-test/pathwayAnalysisResult.json": {
       "checksum": "b710663fb46a462aadbf3f1c258aa5fa"
     },
-    "data2/PathwayDesignData.json": {
-      "checksum": "c28e35ed3a9dabefe1c6591af6f10c1f"
+    "data3/app.properties": {
+      "checksum": "0fe4718fb474731e0730ccfc6d9d48ac"
+    },
+    "data3/chartData.json": {
+      "checksum": "089e27fd3782382905c8386721bd2fb5"
+    },
+    "data3/datasource_summary.json": {
+      "checksum": "1b5439bc85e47612212731f975e64f64"
+    },
+    "data3/design.json": {
+      "checksum": "63dadb0778ef47db959a32064cada5b9"
+    },
+    "data3/pathwayAnalysis.json": {
+      "checksum": "3610b92147d8456764441d1f7f25d202"
+    },
+    "data3/pathwayAnalysisResult.json": {
+      "checksum": "b710663fb46a462aadbf3f1c258aa5fa"
     },
     "DESCRIPTION": {
-      "checksum": "e70b950d7f03f7b39a8a62d1381d0805"
+      "checksum": "0f437bddf03fbf4e9b50f77206d414aa"
     },
     "helpers.R": {
-      "checksum": "ec2d5ca081ba064352379e2c28e4a864"
+      "checksum": "440d81ca1c36c0f2ab695124a3df0b7b"
+    },
+    "NAMESPACE": {
+      "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
     },
     "renv.lock": {
-      "checksum": "1b1ca74294dd849b772c9d9474db18fe"
+      "checksum": "16a9e5b794f6f399fd0c24177a98665f"
     }
   },
   "users": null
