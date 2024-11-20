@@ -2034,7 +2034,7 @@
         "Package": "sunburstShinyWidget",
         "Type": "Package",
         "Title": "Sunburst HTML Widget",
-        "Version": "0.4.3",
+        "Version": "0.4.4",
         "Authors@R": "\n    person(\"Kamil\", \"Foltyński\", , \"kamil@foltynski.com\", role = c(\"aut\", \"cre\"))",
         "Description": "Ported Sunburst plot based on d3.js library to HTML Shiny Widget",
         "License": "MIT + file LICENSE",
@@ -2045,18 +2045,18 @@
         "RoxygenNote": "7.3.2",
         "Author": "Kamil Foltyński [aut, cre]",
         "Maintainer": "Kamil Foltyński <kamil@foltynski.com>",
-        "Built": "R 4.3.2; ; 2024-11-13 16:55:03 UTC; unix",
+        "Built": "R 4.3.2; ; 2024-11-20 14:19:14 UTC; unix",
         "RemoteType": "github",
         "RemoteHost": "api.github.com",
         "RemoteUsername": "Tazovsky",
         "RemoteRepo": "sunburstShinyWidget",
         "RemoteRef": "master",
-        "RemoteSha": "309d1c637cb8ecf6c0dc8ecb036654f829844b97",
+        "RemoteSha": "7c1c81bbc465f21ef46642083517ed20bab8a063",
         "GithubHost": "api.github.com",
         "GithubRepo": "sunburstShinyWidget",
         "GithubUsername": "Tazovsky",
         "GithubRef": "master",
-        "GithubSHA1": "309d1c637cb8ecf6c0dc8ecb036654f829844b97"
+        "GithubSHA1": "7c1c81bbc465f21ef46642083517ed20bab8a063"
       }
     },
     "tibble": {
@@ -2407,10 +2407,10 @@
       "checksum": "9ab8fa2ce379ed6858fdb7c5c7f3108a"
     },
     ".Rprofile": {
-      "checksum": "0c89182f8363c307a297296506f3f406"
+      "checksum": "98c7e9d34d7899cb74607dca5f7fbea3"
     },
     "app.R": {
-      "checksum": "ff5f337aee120d1ab2bca363ab941c4d"
+      "checksum": "01d303e69b0c3d071ca3e874b4caf6e1"
     },
     "data-from-oleg/app.properties": {
       "checksum": "b016348b21f56847599ba3e138374b7c"
@@ -2464,7 +2464,7 @@
       "checksum": "b710663fb46a462aadbf3f1c258aa5fa"
     },
     "DESCRIPTION": {
-      "checksum": "0f437bddf03fbf4e9b50f77206d414aa"
+      "checksum": "e612ad241725e3459c1705f3d002ec79"
     },
     "helpers.R": {
       "checksum": "440d81ca1c36c0f2ab695124a3df0b7b"
@@ -2473,7 +2473,7 @@
       "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
     },
     "renv.lock": {
-      "checksum": "16a9e5b794f6f399fd0c24177a98665f"
+      "checksum": "b27c4bf96fe483e87c6056ab7faa3974"
     }
   },
   "users": null
