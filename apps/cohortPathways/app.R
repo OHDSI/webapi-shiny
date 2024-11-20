@@ -12,12 +12,13 @@ if (file.exists("helpers.R")) {
 } else {
   source("../cohortCounts/helpers.R")
 }
+not_found <- shiny::tags$span(style = "color: orange;", "Property not found.")
 PROPERTIES <- properties::read.properties(file.path(data_dir, "app.properties"))
-repo_link <- PROPERTIES$repo_link
-atlas_link <- PROPERTIES$atlas_url
-datasource <- PROPERTIES$datasource
-datasource_name <- PROPERTIES$datasource_name
-asset_name <- PROPERTIES$asset_name
+repo_link <- PROPERTIES$repo_link %||% not_found
+atlas_link <- PROPERTIES$atlas_link %||% not_found
+datasource <- PROPERTIES$datasource %||% not_found
+datasource_name <- PROPERTIES$datasource_name %||% not_found
+asset_name <- PROPERTIES$asset_name %||% not_found
 chartData <- jsonlite::read_json(file.path(data_dir, "chartData.json"))
 design <- jsonlite::read_json(file.path(data_dir, "design.json"))
 eventCodes <- chartData$eventCodes %>%
