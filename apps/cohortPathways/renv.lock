@@ -873,14 +873,14 @@
     },
     "sunburstShinyWidget": {
       "Package": "sunburstShinyWidget",
-      "Version": "0.4.3",
+      "Version": "0.4.4",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "Tazovsky",
       "RemoteRepo": "sunburstShinyWidget",
       "RemoteRef": "master",
-      "RemoteSha": "309d1c637cb8ecf6c0dc8ecb036654f829844b97",
+      "RemoteSha": "7c1c81bbc465f21ef46642083517ed20bab8a063",
       "Requirements": [
         "DT",
         "bslib",
@@ -897,7 +897,7 @@
         "tibble",
         "tidyr"
       ],
-      "Hash": "3c1172c2132da6fe8e6577429bc1ae17"
+      "Hash": "c89355025feb5d6ae1fd6a5b7b6b6fe6"
     },
     "tibble": {
       "Package": "tibble",
