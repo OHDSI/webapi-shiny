@@ -145,7 +145,7 @@ server <- function(input, output) {
         Persons = total_persons, Cases = cases, `Proportion \n(per 1k person-years)` = proportion_per_1k_persons,
         `Time at risk \n(years)` = time_at_risk, `Rate \n(per 1k person-years)` = rate_per_1k_years
       ) %>%
-      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), scales::comma)) %>%
+      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), function(x) scales::comma(x, accuracy = 0.01))) %>%
       reactable(
         columns = list(
           Persons = colDef(header = tippy("Persons", "Total number of persons in the cohort.", placement = "right")),
@@ -200,7 +200,7 @@ server <- function(input, output) {
         `Stratify rule` = subgroup_name, Persons = total_persons, Cases = cases, `Proportion (per 1k person-years)` = proportion_per_1k_persons,
         `Time at risk (years)` = time_at_risk, `Rate (per 1k person-years)` = rate_per_1k_years
       ) %>%
-      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), scales::comma)) %>%
+      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), function(x) scales::comma(x, accuracy = 0.01))) %>%
       reactable(
         columns = list(
           `Stratify rule` = colDef(
