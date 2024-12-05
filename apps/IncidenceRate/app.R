@@ -85,7 +85,7 @@ ui <- fluidPage(
           tags$span(
             bslib::tooltip(
               shiny::icon("circle-info"),
-              HTML("Table legend:<br>1 criteria passed<br>0 criteria failed")
+              HTML("Table legend:<br><span style='color: red;'>Red: </span>criteria passed<br>Black: criteria failed")
             ),
             echarts4rOutput("treemap")
           )
