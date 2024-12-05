@@ -101,28 +101,24 @@ ui <- fluidPage(
   )
 )
 server <- function(input, output) {
-  output$selected_subset_text <- renderText(
-    {
-      if (!isTruthy(input$box_click$name))
-        return("<br>")
-      req(input$box_click$name)
-      x <- app_data$treemap_table %>%
-        filter(
-          data_source == datasource, target == input$target_id, outcome == input$outcome_id,
-          subset_ids == input$box_click$name
-        )
-      if (nrow(x) !=
-        1)
-        stop("Error with filtering. Only one subgroup should be selected!")
-      output$description <- renderText(ROhdsiWebApi::getCohortDefinition(cohortId = 1747753, api_url)[[3]])
-      n_criteria <- app_data$subgroup_table %>%
-        filter(data_source == datasource, target == input$target_id, outcome == input$outcome_id) %>%
-        nrow()
-      n_critera_passed <- length(stringr::str_split(x$subset_ids, ",")[[1]])
-      n_critera_failed <- n_criteria - n_critera_passed
-      glue::glue(
-        "{x$cases} Cases, {x$time_at_risk} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {x$total_persons} (%) people, {n_critera_passed} criteria passed, {n_critera_failed} criteria failed."
+  output$selected_subset_text <- renderText({
+    if (!isTruthy(input$box_click$name)) {
+      return("<br>")
+    }
+    req(input$box_click$name)
+    
+    df_full <- app_data$treemap_table %>%
+      filter(
+        data_source == datasource, target == input$target_id, outcome == input$outcome_id
       )
+    
+    x <- df_full %>%
+      filter(
+        subset_ids == input$box_click$name      )
+    
+    if (nrow(x) !=
+      1) {
+      stop("Error with filtering. Only one subgroup should be selected!")
     }
     output$description <- renderText(ROhdsiWebApi::getCohortDefinition(cohortId = 1747753, api_url)[[3]])
     n_criteria <- app_data$subgroup_table %>%
@@ -130,8 +126,10 @@ server <- function(input, output) {
       nrow()
     n_critera_passed <- length(stringr::str_split(x$subset_ids, ",")[[1]])
     n_critera_failed <- n_criteria - n_critera_passed
+    
+    total_persons_perc <- round(x$total_persons / sum(df_full$total_persons) * 100, 2)
     glue::glue(
-      "{x$cases} Cases, {x$time_at_risk} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {x$total_persons} (%) people, {n_critera_passed} criteria passed, {n_critera_failed} criteria failed."
+      "{x$cases} Cases, {x$time_at_risk} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {x$total_persons} ({total_persons_perc}%) people, {n_critera_passed} criteria passed, {n_critera_failed} criteria failed."
     )
   })
   output$summary_table <- renderReactable({
