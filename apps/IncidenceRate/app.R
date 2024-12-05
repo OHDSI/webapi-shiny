@@ -129,7 +129,7 @@ server <- function(input, output) {
     
     total_persons_perc <- round(x$total_persons / sum(df_full$total_persons) * 100, 2)
     glue::glue(
-      "{x$cases} Cases, {x$time_at_risk} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {x$total_persons} ({total_persons_perc}%) people, {n_critera_passed} criteria passed, {n_critera_failed} criteria failed."
+      "{scales::comma(x$cases)} Cases, {scales::comma(x$time_at_risk)} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {scales::comma(x$total_persons)} ({total_persons_perc}%) people, {scales::comma(n_critera_passed)} criteria passed, {scales::comma(n_critera_failed)} criteria failed."
     )
   })
   output$summary_table <- renderReactable({
