@@ -1,9 +1,12 @@
+message("Loading R packages...")
 library(shiny)
 library(dplyr)
 library(bslib)
 library(logger)
 library(sunburstShinyWidget)
-pkgload::load_all(export_all = FALSE, helpers = FALSE, attach_testthat = FALSE)
+library(shiny.info)
+message("load_all()")
+pkgload::load_all()
 log_level(INFO)
 log_info("reading input data")
 data_dir <- "data"
@@ -12,6 +15,7 @@ if (file.exists("helpers.R")) {
 } else {
   source("../cohortCounts/helpers.R")
 }
+log_info("reading properties")
 not_found <- shiny::tags$span(style = "color: orange;", "Property not found.")
 PROPERTIES <- properties::read.properties(file.path(data_dir, "app.properties"))
 repo_link <- PROPERTIES$repo_link %||% not_found

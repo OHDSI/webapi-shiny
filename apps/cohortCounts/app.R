@@ -56,7 +56,9 @@ ui <- fluidPage(
               inputId = "switch_view", label = "Cohort unit", selected = "Intersect", individual = TRUE,
               choiceNames = c("Intersect", "Attrition"),
               choiceValues = c("Intersect", "Attrition"),
-              size = "sm", width = "100%"          )
+              size = "sm", width = "100%"
+            )
+          )
         ),
         card(
           fluidRow(column(width = 12, textOutput("upper_summary_text"))),
@@ -101,53 +103,8 @@ ui <- fluidPage(
               width = 12, tags$br(), tags$br(), htmlOutput("count_in_selected_subset_text"),
               echarts4rOutput("plot")
             )
-          )        card(
-          fluidRow(column(width = 12, textOutput("upper_summary_text"))),
-          fluidRow(
-            column(
-              width = 12, tags$div(
-                id = "filter_text", "Having", tags$div(
-                  style = "display:inline-block", selectInput(
-                    "any_all", "", c("any", "all"),
-                    selectize = F, width = "80px"
-                  )
-                ),
-                "of selected criteria", tags$div(
-                  style = "display:inline-block", selectInput(
-                    "passed_failed", "", c("passed", "failed"),
-                    selectize = F, width = "100px"
-                  )
-                )
-              ),
-              tags$div(id = "filter_text_filler", HTML("<br><br><br>"))
-            )
-          ),
-          fluidRow(
-            column(
-              width = 8, span(
-                bslib::tooltip(
-                  shiny::icon("circle-info"),
-                  HTML(
-                    paste(
-                      "Table legend:", "PASSED inclusion rules are highlited in red.", "FAILED inclusion rules are highlited in green.",
-                      sep = "<br>"
-                    )
-                  )
-                ),
-                reactableOutput("inclusion_table")
-              ),
-              tags$br(), textOutput("lower_summary_text")
-            )
-          ),
-          fluidRow(
-            column(
-              width = 12, tags$br(), tags$br(), htmlOutput("count_in_selected_subset_text"),
-              echarts4rOutput("plot")
-            )
           )
-        )
-        ),
-        )
+        ) 
       )
       
     ),

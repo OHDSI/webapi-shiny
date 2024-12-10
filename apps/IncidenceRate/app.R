@@ -61,24 +61,35 @@ ui <- fluidPage(
       )
     ),
     nav_panel(
-      "Analysis", card(
-        tags$h5("Summary Statistics for the Cohort"),
-        tags$span(
-          bslib::tooltip(
-            shiny::icon("circle-exclamation"),
-            HTML("Dashboard, design and visualisation may differ from those in ATLAS")
+      "Analysis", 
+      
+      layout_sidebar(
+        sidebar = sidebar(
+          conditionalPanel("input.nav === 'Introduction'", "Application's and cohort descriptions."),
+          conditionalPanel(
+            "input.nav === 'Analysis'", selectInput("target_id", "Target cohorts", target_cohorts),
+            selectInput("outcome_id", "Outcome cohorts", outcome_cohorts)
           )
         ),
-        reactableOutput("summary_table"),
-        tags$br(), tags$h5("Summary Statistics for Strata within the Cohort"),
-        reactableOutput("subgroup_table"),
-        htmlOutput("selected_subset_text"),
-        tags$span(
-          bslib::tooltip(
-            shiny::icon("circle-info"),
-            HTML("Table legend:<br>1 criteria passed<br>0 criteria failed")
+        card(
+          tags$h5("Summary Statistics for the Cohort"),
+          tags$span(
+            bslib::tooltip(
+              shiny::icon("circle-exclamation"),
+              HTML("Dashboard, design and visualisation may differ from those in ATLAS")
+            )
           ),
-          echarts4rOutput("treemap")
+          reactableOutput("summary_table"),
+          tags$br(), tags$h5("Summary Statistics for Strata within the Cohort"),
+          reactableOutput("subgroup_table"),
+          htmlOutput("selected_subset_text"),
+          tags$span(
+            bslib::tooltip(
+              shiny::icon("circle-info"),
+              HTML("Table legend:<br><span style='color: red;'>Red: </span>criteria passed<br>Black: criteria failed")
+            ),
+            echarts4rOutput("treemap")
+          )
         )
       ),
       
@@ -91,16 +102,36 @@ ui <- fluidPage(
   )
 )
 server <- function(input, output) {
-    x <- app_data$treemap_table %>%
+  output$selected_subset_text <- renderText({
+    if (!isTruthy(input$box_click$name)) {
+      return("<br>")
+    }
+    req(input$box_click$name)
+    
+    df_full <- app_data$treemap_table %>%
       filter(
-        data_source == datasource, target == input$target_id, outcome == input$outcome_id,
+        data_source == datasource, target == input$target_id, outcome == input$outcome_id
+      )
+    
+    x <- df_full %>%
+      filter(
         subset_ids == input$box_click$name
       )
+    
     if (nrow(x) !=
       1) {
-      stop("Error with filtering. Only one subgroup should be selected!")    }
+      stop("Error with filtering. Only one subgroup should be selected!")
+    }
+    output$description <- renderText(ROhdsiWebApi::getCohortDefinition(cohortId = 1747753, api_url)[[3]])
+    n_criteria <- app_data$subgroup_table %>%
+      filter(data_source == datasource, target == input$target_id, outcome == input$outcome_id) %>%
+      nrow()
+    n_critera_passed <- length(stringr::str_split(x$subset_ids, ",")[[1]])
+    n_critera_failed <- n_criteria - n_critera_passed
+    
+    total_persons_perc <- round(x$total_persons / sum(df_full$total_persons) * 100, 2)
     glue::glue(
-      "{x$cases} Cases, {x$time_at_risk} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {x$total_persons} (%) people, {n_critera_passed} criteria passed, {n_critera_failed} criteria failed."
+      "{scales::comma(x$cases)} Cases, {scales::comma(x$time_at_risk)} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {scales::comma(x$total_persons)} ({total_persons_perc}%) people, {scales::comma(n_critera_passed)} criteria passed, {scales::comma(n_critera_failed)} criteria failed."
     )
   })
   output$summary_table <- renderReactable({
@@ -114,6 +145,7 @@ server <- function(input, output) {
         Persons = total_persons, Cases = cases, `Proportion \n(per 1k person-years)` = proportion_per_1k_persons,
         `Time at risk \n(years)` = time_at_risk, `Rate \n(per 1k person-years)` = rate_per_1k_years
       ) %>%
+      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), function(x) scales::comma(x, accuracy = 0.01))) %>%
       reactable(
         columns = list(
           Persons = colDef(header = tippy("Persons", "Total number of persons in the cohort.", placement = "right")),
@@ -166,6 +198,7 @@ server <- function(input, output) {
         `Stratify rule` = subgroup_name, Persons = total_persons, Cases = cases, `Proportion (per 1k person-years)` = proportion_per_1k_persons,
         `Time at risk (years)` = time_at_risk, `Rate (per 1k person-years)` = rate_per_1k_years
       ) %>%
+      dplyr::mutate(dplyr::across(dplyr::where(is.numeric), function(x) scales::comma(x, accuracy = 0.01))) %>%
       reactable(
         columns = list(
           `Stratify rule` = colDef(
