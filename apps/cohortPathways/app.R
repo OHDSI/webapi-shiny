@@ -47,10 +47,17 @@ ui <- fluidPage(
       )
     ),
     nav_panel("Analysis", sunburstShinyWidget::sunburstUI("sunburst_plot")),
-    nav_spacer(), nav_menu(
-      title = "Links", align = "right", nav_item(a("Git Repository", href = repo_link, target = "_blank")),
-      nav_item(a(asset_name, href = atlas_link, target = "_blank"))
-    ),
+    nav_spacer(),
+    nav_menu(title = "Links",
+             align = "right",
+             nav_item(a(
+               "Git Repository", href = repo_link, target = "_blank",
+               `data-toggle` = "tooltip", title = "Access the source code repository used for this dashboard."
+             )),
+             nav_item(a(
+               asset_name, href = atlas_link, target = "_blank",
+               `data-toggle` = "tooltip", title = "Access the Atlas asset designed for the creation of this dashboard."
+             ))),
   )
 )
 log_info("initializing Shiny Server")

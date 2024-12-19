@@ -100,17 +100,17 @@ server <- function(input, output, session) {
             df <- df %>%
               dplyr::select(1:(count_index - 1), Boxplot, Count, (count_index + 1):ncol(df)) %>%
               dplyr::mutate(Count = scales::comma(as.numeric(Count)))
-            
+
             tbl_id <- download_file_name(PROPERTIES$analysis_name, cohortNames$targetCohort[[r()[[x]]]])
-            
+
             tags$div(
               class = "header", checked = NA, tags$h4(cohortNames$targetCohort[[r()[[x]]]], align = "right"),
               tags$hr(style = "border-top: 1px solid #000000;"),
               T1[[x]] <- htmltools::browsable(
                 tagList(
-                  tags$button("Download as CSV", 
+                  tags$button("Download as CSV",
                               onclick = glue::glue("Reactable.downloadDataCSV('{tbl_id}', '{tbl_id}')")),
-                  
+
                   reactable(elementId = tbl_id,
                             df,
                             sortable = TRUE, showSortable = FALSE, highlight = TRUE, searchable = TRUE,
@@ -136,9 +136,9 @@ server <- function(input, output, session) {
               tags$hr(style = "border-top: 1px solid #000000;"),
               T1[[x]] <- htmltools::browsable(
                 tagList(
-                  tags$button("Download as CSV", 
+                  tags$button("Download as CSV",
                               onclick = glue::glue("Reactable.downloadDataCSV('{tbl_id}', '{tbl_id}')")),
-                  
+
                   reactable(elementId = tbl_id,
                             df,
                             sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,
@@ -183,9 +183,9 @@ server <- function(input, output, session) {
             tags$hr(style = "border-top: 1px solid #000000;"),
             T2[[x]] <- htmltools::browsable(
               tagList(
-                tags$button("Download as CSV", 
+                tags$button("Download as CSV",
                             onclick = glue::glue("Reactable.downloadDataCSV('{tbl_id}', '{tbl_id}')")),
-                
+
                 reactable(elementId = tbl_id,
                           df,
                           sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,

@@ -111,7 +111,7 @@ dashboard_func <- function(app_type) {
         tags$li("Attrition: is used to track and explain the loss of persons during the cohort definition process such that the researcher can see how inclusion and exclusion criteria impact their cohort.")
       )
     ),
-    "cohort_characterization" = span("To toggle the results of your characterization analysis, use the drop-down options on the top left to select cohorts and the specific analysis of interest. The table shows values for the target cohort and the comparator cohort. â€œNullâ€ indicates no data for the cohort."),
+    "cohort_characterization" = span("To toggle the results of your characterization analysis, use the drop-down options on the top left to select cohorts and the specific analysis of interest. The table shows values for the target cohort and the comparator cohort. 'Null' indicates no data for the cohort."),
     "incidence_rate" = span("Once you have a built analysis for incidence in the Atlas platform the RShiny app offers a visual presentation of your analysis."),
     "cohort_pathway" = span("The RShiny app will display cohort pathway results with an interactive sunburst. Users can click on the sunburst to see details for the segment on the top right. Cohort details are available on the top left. Scroll down past the image to see the tabular view if preferred.")
   )
