@@ -10,13 +10,13 @@ server <- function(input, output, session) {
           inputId = "analysis", label = "Analysis name", choices = c(cohortNames$targetCohort),
           selected = c(cohortNames$targetCohort),
           multiple = TRUE, options = pickerOptions(actionsBox = TRUE)
-        )
+        ) %>% shinyjs::disabled()
       } else if (cohort == "comparatorCohort") {
         picket_input <- pickerInput(
           inputId = "analysis", label = "Analysis name", choices = c(cohortNames$comparatorCohort),
           selected = c(cohortNames$comparatorCohort),
           multiple = TRUE, options = pickerOptions(actionsBox = TRUE)
-        )
+        ) %>% shinyjs::disabled()
       }
       output$mainSelector <- renderUI({
         picket_input
