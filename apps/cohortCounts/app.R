@@ -295,9 +295,9 @@ server <- function(input, output) {
       df <- tibble(app_data[[1]][[input$level]]$attrition_table)
       df <- select(df, ID, pct_diff) %>%
         mutate(pct_diff = round(pct_diff * 100, 2)) %>%
-        rename(`Percent diffecerence` = pct_diff) %>%
+        rename(`Percent difference` = pct_diff) %>%
         e_charts(ID) %>%
-        e_bar(`Percent diffecerence`, itemStyle = list(color = "#0f4251")) %>%
+        e_bar(`Percent difference`, itemStyle = list(color = "#0f4251")) %>%
         e_labels() %>%
         e_hide_grid_lines()
     } else {

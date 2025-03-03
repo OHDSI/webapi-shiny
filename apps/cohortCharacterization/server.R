@@ -91,7 +91,7 @@ server <- function(input, output, session) {
         seq_len(l()),
         function(x) {
           if (isTruthy(r()[[x]]) &&
-            !is.null(targetCohort[[r()[[x]]]]$Avg)) {
+              !is.null(targetCohort[[r()[[x]]]]$Avg)) {
             df <- targetCohort[[r()[[x]]]]
             count_index <- which(
               colnames(df) ==
@@ -100,47 +100,65 @@ server <- function(input, output, session) {
             df <- df %>%
               dplyr::select(1:(count_index - 1), Boxplot, Count, (count_index + 1):ncol(df)) %>%
               dplyr::mutate(Count = scales::comma(as.numeric(Count)))
+            
+            tbl_id <- download_file_name(PROPERTIES$analysis_name, cohortNames$targetCohort[[r()[[x]]]])
+            
             tags$div(
               class = "header", checked = NA, tags$h4(cohortNames$targetCohort[[r()[[x]]]], align = "right"),
               tags$hr(style = "border-top: 1px solid #000000;"),
-              T1[[x]] <- reactable(
-                df,
-                sortable = TRUE, showSortable = FALSE, highlight = TRUE, searchable = TRUE,
-                theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
-                showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
-                defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900),
-                columns = list(
-                  Boxplot = colDef(
-                    cell = function(x) {
-                      div(class = "plot", img(src = sprintf("p%s.png", x)))
-                    }, width = 200, align = "center"
+              T1[[x]] <- htmltools::browsable(
+                tagList(
+                  tags$button("Download as CSV", 
+                              onclick = glue::glue("Reactable.downloadDataCSV('{tbl_id}', '{tbl_id}')")),
+                  
+                  reactable(elementId = tbl_id,
+                            df,
+                            sortable = TRUE, showSortable = FALSE, highlight = TRUE, searchable = TRUE,
+                            theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
+                            showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
+                            defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900),
+                            columns = list(
+                              Boxplot = colDef(
+                                cell = function(x) {
+                                  div(class = "plot", img(src = sprintf("p%s.png", x)))
+                                }, width = 200, align = "center"
+                              )
+                            )
                   )
                 )
               )
             )
           } else {
             df <- targetCohort[[r()[[x]]]]
+            tbl_id <- download_file_name(PROPERTIES$analysis_name, cohortNames$targetCohort[[r()[[x]]]])
             tags$div(
               class = "header", checked = NA, tags$h4(cohortNames$targetCohort[[r()[[x]]]], align = "right"),
               tags$hr(style = "border-top: 1px solid #000000;"),
-              T1[[x]] <- reactable(
-                df,
-                sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,
-                theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
-                showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
-                defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900),
-                columns = list(
-                  Percent = colDef(
-                    name = "N (%)", style = function(value) {
-                      value <- as.numeric(value)
-                      bar_style(width = value / 100, color = "lightblue")
-                    }, cell = function(value, index, rowInfo) {
-                      count <- df[index, ]$Count %>%
-                        scales::comma()
-                      glue::glue("{count} ({value}%)")
-                    }
-                  ),
-                  Count = colDef(show = FALSE)
+              T1[[x]] <- htmltools::browsable(
+                tagList(
+                  tags$button("Download as CSV", 
+                              onclick = glue::glue("Reactable.downloadDataCSV('{tbl_id}', '{tbl_id}')")),
+                  
+                  reactable(elementId = tbl_id,
+                            df,
+                            sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,
+                            theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
+                            showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
+                            defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900),
+                            columns = list(
+                              Percent = colDef(
+                                name = "N (%)", style = function(value) {
+                                  value <- as.numeric(value)
+                                  bar_style(width = value / 100, color = "lightblue")
+                                }, cell = function(value, index, rowInfo) {
+                                  count <- df[index, ]$Count %>%
+                                    scales::comma()
+                                  glue::glue("{count} ({value}%)")
+                                }
+                              ),
+                              Count = colDef(show = FALSE)
+                            )
+                  )
                 )
               )
             )
@@ -158,15 +176,24 @@ server <- function(input, output, session) {
             df <- df %>%
               dplyr::mutate(`Comparator percent` = round(`Comparator percent`, 3))
           }
+          tbl_id <- download_file_name(PROPERTIES$analysis_name, cohortNames$comparatorCohort[[s()[[x]]]])
+
           tags$div(
             class = "header", checked = NA, tags$h4(cohortNames$comparatorCohort[[s()[[x]]]], align = "right"),
             tags$hr(style = "border-top: 1px solid #000000;"),
-            T2[[x]] <- reactable(
-              df,
-              sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,
-              theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
-              showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
-              defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900)
+            T2[[x]] <- htmltools::browsable(
+              tagList(
+                tags$button("Download as CSV", 
+                            onclick = glue::glue("Reactable.downloadDataCSV('{tbl_id}', '{tbl_id}')")),
+                
+                reactable(elementId = tbl_id,
+                          df,
+                          sortable = TRUE, showSortable = TRUE, highlight = TRUE, searchable = TRUE,
+                          theme = reactableTheme(color = "hsl(0, 0%, 0%)"),
+                          showPageSizeOptions = TRUE, pageSizeOptions = c(10, 15, 20),
+                          defaultPageSize = 15, style = list(maxWidth = 1600, maxHeight = 900)
+                )
+              )
             )
           )
         }

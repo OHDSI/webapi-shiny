@@ -206,4 +206,12 @@ bar_style <- function(width = 1, color = "lightblue") {
     backgroundSize = "98% 88%", backgroundRepeat = "no-repeat", backgroundPosition = "center"
   )
 }
+
+download_file_name <- function(analysis_name, subname) {
+  ts <- format(Sys.time(), format = "%Y-%m-%d-%H-%M-%S")
+  glue::glue("{analysis_name}__{subname}__{ts}") %>%
+    gsub("\\s", "_", .) %>%
+    paste0(., ".csv")
+}
+
 FALSE
