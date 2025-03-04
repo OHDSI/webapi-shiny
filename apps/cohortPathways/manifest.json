@@ -2041,7 +2041,7 @@
         "Package": "sunburstShinyWidget",
         "Type": "Package",
         "Title": "Sunburst HTML Widget",
-        "Version": "0.4.5",
+        "Version": "0.4.6",
         "Authors@R": "\n    person(\"Kamil\", \"Foltyński\", , \"kamil@foltynski.com\", role = c(\"aut\", \"cre\"))",
         "Description": "Ported Sunburst plot based on d3.js library to HTML Shiny Widget",
         "License": "MIT + file LICENSE",
@@ -2052,18 +2052,18 @@
         "RoxygenNote": "7.3.2",
         "Author": "Kamil Foltyński [aut, cre]",
         "Maintainer": "Kamil Foltyński <kamil@foltynski.com>",
-        "Built": "R 4.3.2; ; 2025-02-28 15:28:02 UTC; unix",
+        "Built": "R 4.3.2; ; 2025-03-04 14:40:23 UTC; unix",
         "RemoteType": "github",
         "RemoteHost": "api.github.com",
         "RemoteUsername": "Tazovsky",
         "RemoteRepo": "sunburstShinyWidget",
         "RemoteRef": "master",
-        "RemoteSha": "f5e451b3350f31921221b2da65c76d1f14492908",
+        "RemoteSha": "299233625be3b8f019cdd258c95df9e7ad447c65",
         "GithubHost": "api.github.com",
         "GithubRepo": "sunburstShinyWidget",
         "GithubUsername": "Tazovsky",
         "GithubRef": "master",
-        "GithubSHA1": "f5e451b3350f31921221b2da65c76d1f14492908"
+        "GithubSHA1": "299233625be3b8f019cdd258c95df9e7ad447c65"
       }
     },
     "tibble": {
@@ -2414,10 +2414,10 @@
       "checksum": "9ab8fa2ce379ed6858fdb7c5c7f3108a"
     },
     ".Rprofile": {
-      "checksum": "9a110448a3d3d4b94594ee26be2aa408"
+      "checksum": "5614ad87e7e15d9f4c6623a02aa79213"
     },
     "app.R": {
-      "checksum": "234b007c29eae007ca046a5cfdb073fa"
+      "checksum": "c476aed24d32202f526a1807ff3b0cc5"
     },
     "data-from-oleg/app.properties": {
       "checksum": "b016348b21f56847599ba3e138374b7c"
@@ -2480,7 +2480,7 @@
       "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
     },
     "renv.lock": {
-      "checksum": "db2216255e97508f21abfdf1eb5b286c"
+      "checksum": "81257e54acc0cbf825af31b3aeb64b22"
     }
   },
   "users": null

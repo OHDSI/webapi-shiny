@@ -20,6 +20,10 @@ make_datasource_summary_html <- function(datasource_summary) {
     tags$ol()
 }
 
+get_name <- function(PROPERTIES, null_value) {
+  PROPERTIES$cohort_name %||% PROPERTIES$analysis_name %||% PROPERTIES$asset_name %||% null_value
+}
+
 make_intro_page <- function(PROPERTIES,
                             markdown_file,
                             app_type,
@@ -48,7 +52,7 @@ make_intro_page <- function(PROPERTIES,
   shiny::tagList(
     h1("Study Asset Description:"),
     tags$ol(
-      tags$li(strong("Name: "), PROPERTIES$cohort_name %||% PROPERTIES$analysis_name %||% PROPERTIES$asset_name %||% not_found),
+      tags$li(strong("Name: "), get_name(PROPERTIES, null_value)),
       tags$li(strong("ID: "), PROPERTIES$asset_id %||% not_found),
       tags$li(strong("Author: "), PROPERTIES$author %||% not_found),
       tags$li(strong("Data Source: "), PROPERTIES$datasource_name %||% not_found),

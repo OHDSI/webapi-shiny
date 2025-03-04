@@ -55,7 +55,11 @@ ui <- fluidPage(
 )
 log_info("initializing Shiny Server")
 server <- function(input, output) {
-  sunburstServer("sunburst_plot", chartData, design)
+  steps_table_export_name <- reactive({
+    nm <- get_name(PROPERTIES, "name_not_found_in_app_properies")
+    paste0(gsub("\\s", "_", nm), "_steps_table.csv")
+  })
+  sunburstServer("sunburst_plot", chartData, design, steps_table_export_name = steps_table_export_name)
 }
 log_info("running Shiny app")
 shinyApp(ui = ui, server = server)
