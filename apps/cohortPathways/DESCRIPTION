@@ -9,7 +9,7 @@ License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Imports:
     shiny,
-    sunburstShinyWidget (>= 0.4.5),
+    sunburstShinyWidget (>= 0.4.7),
     properties,
     bslib,
     pkgload,

@@ -1861,35 +1861,36 @@
       }
     },
     "shiny.info": {
-      "Source": "CRAN",
-      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "Source": "github",
+      "Repository": null,
       "description": {
         "Package": "shiny.info",
         "Type": "Package",
-        "Version": "0.2.0",
+        "Version": "0.2.0.9000",
         "Authors@R": "c(person(\"Paweł\", \"Przytuła\", email = \"pawel@appsilon.com\", role = c(\"aut\")),\n             person(\"Dominik\", \"Krzemiński\", email = \"dominik@appsilon.com\", role = c(\"aut\")),\n             person(\"Jakub\", \"Nowicki\", email = \"kuba@appsilon.com\", role = c(\"aut\", \"cre\")),\n             person(family = \"Appsilon Sp. z o.o.\", role = c(\"cph\")))",
         "Title": "'shiny' Info",
         "Description": "Displays simple diagnostic information of the 'shiny' project in the user interface of the app.",
         "License": "MIT + file LICENSE",
         "BugReports": "https://github.com/Appsilon/shiny.info/issues",
         "Encoding": "UTF-8",
-        "RoxygenNote": "6.1.1",
+        "RoxygenNote": "7.2.1",
         "Imports": "git2r (>= 0.22.1), glue, shiny",
-        "Suggests": "testthat, lintr, covr",
+        "Suggests": "covr, lintr, rcmdcheck, testthat",
+        "RemoteType": "github",
+        "RemoteHost": "api.github.com",
+        "RemoteRepo": "shiny.info",
+        "RemoteUsername": "Appsilon",
+        "RemoteRef": "f909a3f3142418bf53a02ca06ecd2d3d28438b7c",
+        "RemoteSha": "f909a3f3142418bf53a02ca06ecd2d3d28438b7c",
+        "GithubRepo": "shiny.info",
+        "GithubUsername": "Appsilon",
+        "GithubRef": "f909a3f3142418bf53a02ca06ecd2d3d28438b7c",
+        "GithubSHA1": "f909a3f3142418bf53a02ca06ecd2d3d28438b7c",
         "NeedsCompilation": "no",
-        "Packaged": "2020-03-20 13:51:29 UTC; dominik",
+        "Packaged": "2025-04-09 21:25:58 UTC; kamil_foltynski",
         "Author": "Paweł Przytuła [aut],\n  Dominik Krzemiński [aut],\n  Jakub Nowicki [aut, cre],\n  Appsilon Sp. z o.o. [cph]",
         "Maintainer": "Jakub Nowicki <kuba@appsilon.com>",
-        "Repository": "RSPM",
-        "Date/Publication": "2020-03-23 10:30:02 UTC",
-        "Built": "R 4.3.2; ; 2024-09-05 08:05:55 UTC; unix",
-        "RemoteType": "standard",
-        "RemotePkgRef": "shiny.info",
-        "RemoteRef": "shiny.info",
-        "RemoteRepos": "https://packagemanager.posit.co/cran/latest",
-        "RemoteReposName": "CRAN",
-        "RemotePkgPlatform": "source",
-        "RemoteSha": "0.2.0"
+        "Built": "R 4.3.2; ; 2025-04-09 21:25:59 UTC; unix"
       }
     },
     "shinyWidgets": {
@@ -2041,29 +2042,30 @@
         "Package": "sunburstShinyWidget",
         "Type": "Package",
         "Title": "Sunburst HTML Widget",
-        "Version": "0.4.6",
+        "Version": "0.4.7",
         "Authors@R": "\n    person(\"Kamil\", \"Foltyński\", , \"kamil@foltynski.com\", role = c(\"aut\", \"cre\"))",
         "Description": "Ported Sunburst plot based on d3.js library to HTML Shiny Widget",
         "License": "MIT + file LICENSE",
         "Encoding": "UTF-8",
         "LazyData": "true",
-        "Depends": "shiny,\nshinydashboard",
-        "Imports": "pkgload,\nhtmlwidgets,\njsonlite,\ntidyr,\nbslib,\nglue,\nDT,\nshiny.info,\ntibble,\ndplyr,\npurrr,\nscales",
+        "Depends": "shiny, shinydashboard",
+        "Imports": "pkgload, htmlwidgets, jsonlite, tidyr, bslib, glue, DT,\nshiny.info, tibble, dplyr, purrr, scales, waiter",
         "RoxygenNote": "7.3.2",
-        "Author": "Kamil Foltyński [aut, cre]",
-        "Maintainer": "Kamil Foltyński <kamil@foltynski.com>",
-        "Built": "R 4.3.2; ; 2025-03-04 14:40:23 UTC; unix",
         "RemoteType": "github",
         "RemoteHost": "api.github.com",
-        "RemoteUsername": "Tazovsky",
         "RemoteRepo": "sunburstShinyWidget",
-        "RemoteRef": "master",
-        "RemoteSha": "299233625be3b8f019cdd258c95df9e7ad447c65",
-        "GithubHost": "api.github.com",
+        "RemoteUsername": "Tazovsky",
+        "RemoteRef": "HEAD",
+        "RemoteSha": "a590c22996fddb659796786da0bcbb8d89eee86d",
         "GithubRepo": "sunburstShinyWidget",
         "GithubUsername": "Tazovsky",
-        "GithubRef": "master",
-        "GithubSHA1": "299233625be3b8f019cdd258c95df9e7ad447c65"
+        "GithubRef": "HEAD",
+        "GithubSHA1": "a590c22996fddb659796786da0bcbb8d89eee86d",
+        "NeedsCompilation": "no",
+        "Packaged": "2025-04-09 21:18:16 UTC; kamil_foltynski",
+        "Author": "Kamil Foltyński [aut, cre]",
+        "Maintainer": "Kamil Foltyński <kamil@foltynski.com>",
+        "Built": "R 4.3.2; ; 2025-04-09 21:18:16 UTC; unix"
       }
     },
     "tibble": {
@@ -2278,6 +2280,33 @@
         "Built": "R 4.3.0; ; 2024-06-25 22:11:09 UTC; unix"
       }
     },
+    "waiter": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "description": {
+        "Package": "waiter",
+        "Title": "Loading Screen for 'Shiny'",
+        "Version": "0.2.5",
+        "Date": "2022-01-02",
+        "Authors@R": "c(\n    person(given = \"John\",\n           family = \"Coene\",\n           role = c(\"aut\", \"cre\"),\n           email = \"jcoenep@gmail.com\"),\n    person(given = \"Jinhwan\",\n           family = \"Kim\",\n           role = \"ctb\",\n           email = 'hwanistic@gmail.com'),\n    person(given = \"Victor\",\n           family = \"Granda\",\n           role = c(\"ctb\"),\n           email = \"victorgrandagarcia@gmail.com\",\n           comment = c(ORCID = \"0000-0002-0469-1991\")))",
+        "Description": "Full screen and partial loading screens for 'Shiny' with spinners, progress bars, and notifications.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://waiter.john-coene.com/,\nhttps://github.com/JohnCoene/waiter",
+        "BugReports": "https://github.com/JohnCoene/waiter/issues",
+        "Encoding": "UTF-8",
+        "Imports": "R6, shiny, htmltools",
+        "RoxygenNote": "7.1.2",
+        "Suggests": "httr, knitr, packer, rmarkdown",
+        "VignetteBuilder": "knitr",
+        "NeedsCompilation": "no",
+        "Packaged": "2022-01-03 13:33:14 UTC; john",
+        "Author": "John Coene [aut, cre],\n  Jinhwan Kim [ctb],\n  Victor Granda [ctb] (<https://orcid.org/0000-0002-0469-1991>)",
+        "Maintainer": "John Coene <jcoenep@gmail.com>",
+        "Repository": "RSPM",
+        "Date/Publication": "2022-01-03 14:30:02 UTC",
+        "Built": "R 4.3.0; ; 2023-08-21 21:10:56 UTC; unix"
+      }
+    },
     "withr": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.posit.co/cran/latest",
@@ -2414,73 +2443,55 @@
       "checksum": "9ab8fa2ce379ed6858fdb7c5c7f3108a"
     },
     ".Rprofile": {
-      "checksum": "5614ad87e7e15d9f4c6623a02aa79213"
+      "checksum": "0efc582c9d44b014058e971853554511"
     },
     "app.R": {
-      "checksum": "c476aed24d32202f526a1807ff3b0cc5"
+      "checksum": "de773f6d939306714ebb4505e293aed6"
     },
-    "data-from-oleg/app.properties": {
-      "checksum": "b016348b21f56847599ba3e138374b7c"
+    "data-debug/app.properties": {
+      "checksum": "4fa0f40db0253229ce897761887202a4"
     },
-    "data-from-oleg/chartData.json": {
-      "checksum": "089e27fd3782382905c8386721bd2fb5"
+    "data-debug/chartData.json": {
+      "checksum": "ef6f729f107f271b9d2b7285102515e5"
     },
-    "data-from-oleg/design.json": {
-      "checksum": "63dadb0778ef47db959a32064cada5b9"
+    "data-debug/data.zip": {
+      "checksum": "5097b051fa776376ea19ee2607619941"
     },
-    "data-from-oleg/pathwayAnalysis.json": {
-      "checksum": "b415fda10e42e59333bc24d8bd65c8e7"
+    "data-debug/datasource_summary.json": {
+      "checksum": "460fa6a688a670709d4aec12f8be0d76"
     },
-    "data-from-oleg/pathwayAnalysisResult.json": {
-      "checksum": "c78a704a61875fb2ce1d90ddfdb32556"
+    "data-debug/design.json": {
+      "checksum": "36d0f30e0af51a966a5b167e3628a08b"
     },
-    "data-test/app.properties": {
+    "data-old/app.properties": {
       "checksum": "0fe4718fb474731e0730ccfc6d9d48ac"
     },
-    "data-test/chartData.json": {
+    "data-old/chartData.json": {
       "checksum": "089e27fd3782382905c8386721bd2fb5"
     },
-    "data-test/datasource_summary.json": {
+    "data-old/datasource_summary.json": {
       "checksum": "1b5439bc85e47612212731f975e64f64"
     },
-    "data-test/design.json": {
+    "data-old/design.json": {
       "checksum": "63dadb0778ef47db959a32064cada5b9"
     },
-    "data-test/pathwayAnalysis.json": {
+    "data-old/pathwayAnalysis.json": {
       "checksum": "3610b92147d8456764441d1f7f25d202"
     },
-    "data-test/pathwayAnalysisResult.json": {
-      "checksum": "b710663fb46a462aadbf3f1c258aa5fa"
-    },
-    "data3/app.properties": {
-      "checksum": "0fe4718fb474731e0730ccfc6d9d48ac"
-    },
-    "data3/chartData.json": {
-      "checksum": "089e27fd3782382905c8386721bd2fb5"
-    },
-    "data3/datasource_summary.json": {
-      "checksum": "1b5439bc85e47612212731f975e64f64"
-    },
-    "data3/design.json": {
-      "checksum": "63dadb0778ef47db959a32064cada5b9"
-    },
-    "data3/pathwayAnalysis.json": {
-      "checksum": "3610b92147d8456764441d1f7f25d202"
-    },
-    "data3/pathwayAnalysisResult.json": {
+    "data-old/pathwayAnalysisResult.json": {
       "checksum": "b710663fb46a462aadbf3f1c258aa5fa"
     },
     "DESCRIPTION": {
-      "checksum": "f4c9cac326be4dc269e45589075c30ac"
+      "checksum": "477debf1a8eba575509bd713434d2152"
     },
     "helpers.R": {
-      "checksum": "440d81ca1c36c0f2ab695124a3df0b7b"
+      "checksum": "6d1286a885c246bb14315031fa1996e0"
     },
     "NAMESPACE": {
       "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
     },
     "renv.lock": {
-      "checksum": "81257e54acc0cbf825af31b3aeb64b22"
+      "checksum": "b8d932ff592e24b2e52719cd44197412"
     }
   },
   "users": null

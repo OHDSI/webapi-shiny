@@ -789,15 +789,20 @@
     },
     "shiny.info": {
       "Package": "shiny.info",
-      "Version": "0.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "0.2.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "shiny.info",
+      "RemoteUsername": "Appsilon",
+      "RemoteRef": "f909a3f3142418bf53a02ca06ecd2d3d28438b7c",
+      "RemoteSha": "f909a3f3142418bf53a02ca06ecd2d3d28438b7c",
       "Requirements": [
         "git2r",
         "glue",
         "shiny"
       ],
-      "Hash": "4e4c89eee16316032d34a3a821fdea69"
+      "Hash": "2d68f97bf297609d769bcb8ac1db539b"
     },
     "shinyWidgets": {
       "Package": "shinyWidgets",
@@ -873,14 +878,14 @@
     },
     "sunburstShinyWidget": {
       "Package": "sunburstShinyWidget",
-      "Version": "0.4.6",
+      "Version": "0.4.7",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "Tazovsky",
       "RemoteRepo": "sunburstShinyWidget",
-      "RemoteRef": "master",
-      "RemoteSha": "299233625be3b8f019cdd258c95df9e7ad447c65",
+      "RemoteUsername": "Tazovsky",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "a590c22996fddb659796786da0bcbb8d89eee86d",
       "Requirements": [
         "DT",
         "bslib",
@@ -895,9 +900,10 @@
         "shiny.info",
         "shinydashboard",
         "tibble",
-        "tidyr"
+        "tidyr",
+        "waiter"
       ],
-      "Hash": "272428f59428110453a9cd4c448f733d"
+      "Hash": "e683a62c767fca59ea8dc9cb20ba35c8"
     },
     "tibble": {
       "Package": "tibble",
@@ -1000,6 +1006,18 @@
         "R"
       ],
       "Hash": "c826c7c4241b6fc89ff55aaea3fa7491"
+    },
+    "waiter": {
+      "Package": "waiter",
+      "Version": "0.2.5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R6",
+        "htmltools",
+        "shiny"
+      ],
+      "Hash": "93e6b6c8ae3f81d4be77a0dc74e5cf5e"
     },
     "withr": {
       "Package": "withr",
