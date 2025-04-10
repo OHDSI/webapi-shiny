@@ -86,7 +86,7 @@ ui <- fluidPage(
           tags$span(
             bslib::tooltip(
               shiny::icon("circle-info"),
-              HTML("Table legend:<br><span style='color: red;'>Red: </span>criteria passed<br>Black: criteria failed")
+              HTML("Table legend:<br><span style='color: red;'>Red: </span>criteria failed<br>Black: criteria passed")
             ),
             echarts4rOutput("treemap")
           )
@@ -138,7 +138,7 @@ server <- function(input, output) {
     
     total_persons_perc <- round(x$total_persons / sum(df_full$total_persons) * 100, 2)
     glue::glue(
-      "{scales::comma(x$cases)} Cases, {scales::comma(x$time_at_risk)} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {scales::comma(x$total_persons)} ({total_persons_perc}%) people, {scales::comma(n_critera_passed)} criteria passed, {scales::comma(n_critera_failed)} criteria failed."
+      "{scales::comma(x$cases)} Cases, {scales::comma(x$time_at_risk)} TAR, Rate: {round(x$rate_per_1k_years, 2)} <br> {scales::comma(x$total_persons)} ({total_persons_perc}%) people, {scales::comma(n_critera_failed)} criteria passed, <span style='color: red;'>{scales::comma(n_critera_passed)}</span> criteria failed."
     )
   })
   output$summary_table <- renderReactable({
